@@ -1,0 +1,44 @@
+project:
+  type: website
+  output-dir: docs
+  render:
+    - "*.qmd"
+
+website:
+  page-navigation: true
+  title: "Table Drawing Research"
+  description: "Table Engine output Experimentation"
+
+  repo-url: https://github.com/insightsengineering/table.drawing.research
+  repo-actions: [edit, issue]
+
+  page-footer:
+    background: "#B8D09F"
+
+  sidebar:
+    background: "#B8D09F"
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        text: GitHub
+    style: docked
+    contents:
+     - href: index.qmd
+       text: Home
+     - href: 01-gtsum-to-html.qmd
+       text: HTML Output
+     - href: 02-gtsum-to-pdf.qmd
+       text: PDF Output
+     - href: 03-gtsum-to-word.qmd
+       text: Word Output
+format:
+  html:
+    theme: [cosmo, theme.scss]
+    toc: true
+    code-copy: true
+    code-overflow: scroll
+    mainfont: "Atkinson Hyperlegible"
+    highlight-style: a11y
+
+editor: source
