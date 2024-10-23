@@ -1,0 +1,23 @@
+---
+title: "Footnotes"
+format: docx
+---
+
+```{r echo = FALSE}
+library(gtsummary)
+tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
+
+gt_table <- tbl$table_body |> 
+  gt::gt(caption = gt::md("This is the caption  \n[Used for cross referencing in Quarto; but I don't think a footnote can be attached]")) |> 
+  gt::sub_missing(missing_text = "") |> 
+  gt::tab_spanner(gt::md("**Spanning Level 1**"), columns = gtsummary::all_stat_cols(FALSE), level = 1L, id = "stat_1_L1") |>
+  # footnotes
+  gt::tab_footnote("Footnote in Header", locations = gt::cells_column_labels(columns = label)) |> 
+  gt::tab_footnote("Footnote in Body", locations = gt::cells_body(columns = label, row = 1L)) |> 
+  gt::tab_footnote("Footnote in Spanning Header", locations = gt::cells_column_spanners(spanners = "stat_1_L1")) |> 
+  gt::tab_footnote("Footnote in Subtitle", locations = gt::cells_title("subtitle")) |> 
+  gt::tab_footnote("Footnote in Title", locations = gt::cells_title("title")) 
+gt_table
+```
+
+

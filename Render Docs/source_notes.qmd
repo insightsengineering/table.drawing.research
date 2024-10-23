@@ -1,0 +1,19 @@
+---
+title: "Source Notes"
+format: docx
+---
+
+```{r echo = FALSE}
+library(gtsummary)
+tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
+
+gt_table <- tbl$table_body |> 
+  gt::gt(caption = gt::md("This is the caption")) |> 
+  #source notes
+  gt::tab_source_note("This is Source Note 1") |> 
+  gt::tab_source_note("This is Source Note 2") |> 
+  gt::tab_source_note("Abbreviations: Q1 = First Quartile; Q3 = Third Quartile")
+gt_table
+```
+
+

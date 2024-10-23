@@ -1,0 +1,70 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+library(gtsummary)
+library(dplyr)
+
+set.seed(123)
+data <- tibble(
+  id = 1:100,
+  age = sample(18:90, 100, replace = TRUE),
+  sex = sample(c("Male", "Female"), 100, replace = TRUE),
+  race = sample(c("White", "Black", "Asian", "Hispanic"), 100, replace = TRUE),
+  bmi = round(runif(100, 18, 35), 1),
+  smoking_status = sample(c("Never", "Former", "Current"), 100, replace = TRUE),
+  diabetes = sample(c("Yes", "No"), 100, replace = TRUE),
+  hypertension = sample(c("Yes", "No"), 100, replace = TRUE),
+  heart_disease = sample(c("Yes", "No"), 100, replace = TRUE),
+  cancer = sample(c("Yes", "No"), 100, replace = TRUE),
+  cholesterol = sample(c("Normal", "High"), 100, replace = TRUE),
+  exercise_frequency = sample(0:7, 100, replace = TRUE),
+  alcohol_intake = sample(c("None", "Low", "Moderate", "High"), 100, replace = TRUE),
+  family_history = sample(c("Yes", "No"), 100, replace = TRUE),
+  education = sample(c("High School", "College", "Graduate"), 100, replace = TRUE),
+  marital_status = sample(c("Single", "Married", "Divorced"), 100, replace = TRUE),
+  employment_status = sample(c("Employed", "Unemployed", "Retired"), 100, replace = TRUE),
+  region = sample(c("North", "South", "East", "West"), 100, replace = TRUE),
+  health_insurance = sample(c("Yes", "No"), 100, replace = TRUE),
+  medication = sample(c("Yes", "No"), 100, replace = TRUE),
+  visits_last_year = sample(0:10, 100, replace = TRUE),
+  satisfaction = sample(1:5, 100, replace = TRUE)
+)
+
+# Create summary table
+summary_table <- data %>%
+  tbl_summary(
+    by = sex,  # Group by sex
+    statistic = list(all_continuous() ~ "{mean} ({sd})", all_categorical() ~ "{n} ({p}%)"),
+    label = list(
+      age ~ "Age (years)",
+      bmi ~ "BMI",
+      smoking_status ~ "Smoking Status",
+      diabetes ~ "Diabetes",
+      hypertension ~ "Hypertension",
+      heart_disease ~ "Heart Disease",
+      cancer ~ "Cancer",
+      cholesterol ~ "Cholesterol",
+      exercise_frequency ~ "Exercise Frequency (days/week)",
+      alcohol_intake ~ "Alcohol Intake",
+      family_history ~ "Family History",
+      education ~ "Education Level",
+      marital_status ~ "Marital Status",
+      employment_status ~ "Employment Status",
+      region ~ "Region",
+      health_insurance ~ "Health Insurance",
+      medication ~ "On Medication",
+      visits_last_year ~ "Visits Last Year",
+      satisfaction ~ "Health Satisfaction (1-5)"
+    )
+  ) %>%
+  add_n() %>%
+  modify_header(label = "**Characteristic**", estimate = "**Mean (SD) or N (%)**") %>%
+  modify_table_styling(columns = everything())
+
+summary_table
+```
+
