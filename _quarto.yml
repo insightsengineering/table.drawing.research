@@ -42,6 +42,7 @@ website:
        text: Table Too Long
      - href: 10_tbl_too_wide.qmd
        text: Table Too Wide
+
 format:
   html:
     theme: [cosmo, theme.scss]
