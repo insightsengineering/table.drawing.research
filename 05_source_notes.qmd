@@ -1,0 +1,62 @@
+---
+title: "Source Notes"
+format: html
+editor: visual
+---
+
+## Testing Source Note output
+
+```{r}
+library(gtsummary)
+
+tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
+
+gt_table <- tbl$table_body |> 
+  gt::gt(caption = gt::md("This is the caption")) |> 
+  #source notes
+  gt::tab_source_note("This is Source Note 1") |> 
+  gt::tab_source_note("This is Source Note 2") |> 
+  gt::tab_source_note("Abbreviations: Q1 = First Quartile; Q3 = Third Quartile")
+```
+
+### gt_save PDF
+
+```{r eval = FALSE}
+gt::gtsave(gt_table, filename = "outputs/pdf/source_notes_gt_pdf.pdf")
+```
+
+[Preview the Output](outputs/pdf/footnotes_gt_pdf.pdf)
+
+### rmarkdown rendered PDF
+
+```{r eval = FALSE}
+gt_table
+```
+
+[Preview the Output](outputs/pdf/source_notes_rmd_pdf.pdf)
+
+### gt_save rendered word file
+
+```{r eval = FALSE}
+gt::gtsave(gt_table, filename = "outputs/docx/source_notes_gt_word.docx")
+```
+
+[Preview the Output](outputs/docx/source_notes_gt_word.docx)
+
+### quarto rendered word file
+
+```{r eval = FALSE}
+gt_table
+```
+
+[Preview the Output](outputs/docx/source_notes_qmd_word.docx)
+
+### rmarkdown rendered word file
+
+```{r eval = FALSE}
+gt_table
+```
+
+[Preview the Output](outputs/docx/source_notes_rmd_word.docx)
+
+
