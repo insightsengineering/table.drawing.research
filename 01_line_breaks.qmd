@@ -33,7 +33,7 @@ gt_table <- tbl$table_body |>
 gt::gtsave(gt_table, filename = "outputs/pdf/linebreaks_gt_pdf.pdf")
 ```
 
-[Preview the Output](outputs/pdf/linebreaks_pdf.pdf)
+[Preview the Output](outputs/pdf/linebreaks_gt_pdf.pdf)
 
 ### rmarkdown rendered PDF
 

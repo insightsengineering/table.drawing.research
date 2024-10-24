@@ -38,6 +38,10 @@ website:
        text: Source Notes
      - href: 06_titles.qmd
        text: Titles
+     - href: 07_alignment.qmd
+       text: Alignment
+     - href: 08_text_styling.qmd
+       text: Text Styling
      - href: 09_tbl_too_long.qmd
        text: Table Too Long
      - href: 10_tbl_too_wide.qmd
