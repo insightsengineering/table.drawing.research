@@ -1,0 +1,63 @@
+---
+title: "Spanning Header"
+format: html
+editor: visual
+---
+
+## Testing Spanning Header output
+
+```{r}
+library(gtsummary)
+
+tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
+
+gt_table <- tbl$table_body |> 
+  gt::gt(caption = gt::md("This is the caption")) |> 
+  gt::fmt_markdown(columns = label) |> # need this to recognize the line break in the table body
+  gt::cols_hide(columns = c(variable, var_type, row_type, var_label)) |> 
+  gt::sub_missing(missing_text = "") |> 
+  # spanning headers 1 and 2 levels
+  gt::tab_spanner(gt::md("**Spanning Level 2**"), columns = gtsummary::all_stat_cols(), level = 2L, id = "stat_1_L2") |> 
+  gt::tab_spanner(gt::md("**Spanning Level 1**"), columns = gtsummary::all_stat_cols(FALSE), level = 1L, id = "stat_1_L1") |> 
+  gt::tab_spanner(gt::md("**Both Treatments**"), columns = stat_0, level = 1L, id = "stat_0_L1") 
+```
+
+### gt_save PDF
+
+```{r eval = FALSE}
+gt::gtsave(gt_table, filename = "outputs/pdf/spanning_header_gt_pdf.pdf")
+```
+
+[Preview the Output](outputs/pdf/spanning_header_gt_pdf.pdf)
+
+### rmarkdown rendered PDF
+
+```{r eval = FALSE}
+gt_table
+```
+
+[Preview the Output](outputs/pdf/spanning_header_rmd_pdf.pdf)
+
+### gt_save rendered word file
+
+```{r eval = FALSE}
+gt::gtsave(gt_table, filename = "outputs/docx/spanning_header_gt_word.docx")
+```
+
+[Preview the Output](outputs/docx/spanning_header_gt_word.docx)
+
+### quarto rendered word file
+
+```{r eval = FALSE}
+gt_table
+```
+
+[Preview the Output](outputs/docx/spanning_header_qmd_word.docx)
+
+### rmarkdown rendered word file
+
+```{r eval = FALSE}
+gt_table
+```
+
+[Preview the Output](outputs/docx/spanning_header_rmd_word.docx)

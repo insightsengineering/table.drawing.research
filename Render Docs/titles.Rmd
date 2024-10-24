@@ -1,0 +1,21 @@
+---
+output:
+  word_document: default
+  pdf_document: default
+---
+
+```{r echo = FALSE}
+library(gtsummary)
+tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
+
+gt_table <- tbl$table_body |> 
+  gt::gt(caption = gt::md("This is the caption")) |> 
+  gt::fmt_markdown(columns = label) |> # need this to recognize the line break in the table body
+  gt::cols_hide(columns = c(variable, var_type, row_type, var_label)) |> 
+  gt::sub_missing(missing_text = "") |> 
+  # title, subtitle, and captions
+  gt::tab_header(gt::md("This is the Title"), subtitle = "This is the Subtitle")
+
+gt_table
+```
+
