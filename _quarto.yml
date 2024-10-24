@@ -46,6 +46,8 @@ website:
        text: Table Too Long
      - href: 10_tbl_too_wide.qmd
        text: Table Too Wide
+     - href: 11_other_engines.qmd
+       text: Other Engines
 
 format:
   html:
