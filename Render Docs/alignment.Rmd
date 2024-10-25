@@ -1,0 +1,20 @@
+---
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r echo = FALSE, message=FALSE, warning=FALSE}
+
+library(gtsummary)
+tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
+
+gt_table <- tbl$table_body |> 
+  gt::gt(caption = gt::md("This is the caption  \n[Used for cross referencing in Quarto]")) |> 
+  gt::cols_align(columns = c(stat_1, stat_2), align = "right") |> 
+  gt::cols_align(columns = c(variable, var_type), align = "center") |>
+  gt::cols_align(columns = c(row_type, var_label), align = "left")
+
+gt_table
+```
+

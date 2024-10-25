@@ -1,0 +1,30 @@
+---
+title: "Output Engines Experimentation"
+format: html
+editor: visual
+---
+
+Other table output options were experimented with but did not carry forward as the outputs did not render correctly. Below are the results of a few engines tried.
+
+## Typst PDF
+
+```{r eval=FALSE}
+library(gtsummary)
+tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age  \n\U00A0\U00A0linebreak in a cell")) |> add_overall()
+gt_table <- tbl$table_body |> 
+  gt::gt(caption = gt::md("This is the caption  \n[Used for cross referencing in Quarto]")) |> 
+  gt::fmt_markdown(columns = label) |> # need this to recognize the line break in the table body
+  # Column headers with line breaks
+  gt::cols_label(
+    stat_0 = gt::md("**Overall**"),
+    stat_1 = gt::md("**Drug A**  \nManual Line Break"), 
+    stat_2 = gt::md("**Drug B**  \nManual Line Break")
+  ) |> 
+  gt::tab_header(gt::md("This is the Title  \nwith a linebreak"), subtitle = "This is the Subtitle")
+
+gt_table
+```
+
+[Preview the Output](outputs/quarto_typst.pdf)
+
+{{< pdf outputs/quarto_typst.pdf width=100% height=800 >}}

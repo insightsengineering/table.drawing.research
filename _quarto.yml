@@ -26,12 +26,29 @@ website:
     contents:
      - href: index.qmd
        text: Home
-     - href: 01-gtsum-to-html.qmd
-       text: HTML Output
-     - href: 02-gtsum-to-pdf.qmd
-       text: PDF Output
-     - href: 03-gtsum-to-word.qmd
-       text: Word Output
+     - href: 01_line_breaks.qmd
+       text: Line Breaks
+     - href: 02_indentation.qmd
+       text: Indentation
+     - href: 03_spanning_header.qmd
+       text: Spanning Header
+     - href: 04_footnotes.qmd
+       text: Footnotes
+     - href: 05_source_notes.qmd
+       text: Source Notes
+     - href: 06_titles.qmd
+       text: Titles
+     - href: 07_alignment.qmd
+       text: Alignment
+     - href: 08_text_styling.qmd
+       text: Text Styling
+     - href: 09_tbl_too_long.qmd
+       text: Table Too Long
+     - href: 10_tbl_too_wide.qmd
+       text: Table Too Wide
+     - href: 11_other_engines.qmd
+       text: Other Engines
+
 format:
   html:
     theme: [cosmo, theme.scss]
