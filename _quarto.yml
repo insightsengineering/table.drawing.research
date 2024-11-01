@@ -51,11 +51,9 @@ website:
 
 format:
   html:
-    theme: [cosmo, theme.scss]
+    theme: cosmo
     toc: true
     code-copy: true
     code-overflow: scroll
-    mainfont: "Atkinson Hyperlegible"
-    highlight-style: a11y
 
 editor: source
