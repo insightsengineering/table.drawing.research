@@ -3,6 +3,7 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
+    - "!Render Docs/*.qmd"  # Exclude all .qmd files in the Render Docs folder
 
 website:
   page-navigation: true
