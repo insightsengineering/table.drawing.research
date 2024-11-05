@@ -6,7 +6,6 @@ editor: visual
 
 ## Testing Alignments output
 
-
 ```{r eval=FALSE}
 
 library(gtsummary)
@@ -27,6 +26,8 @@ gt::gtsave(gt_table, filename = "outputs/pdf/alignment_gt_pdf.pdf")
 
 [Preview the Output](outputs/pdf/alignment_gt_pdf.pdf)
 
+-   no issues
+
 ### rmarkdown rendered PDF
 
 ```{r eval = FALSE}
@@ -34,6 +35,8 @@ gt_table
 ```
 
 [Preview the Output](outputs/pdf/alignment_rmd_pdf.pdf)
+
+-   no issues
 
 ### gt_save rendered word file
 
@@ -43,6 +46,8 @@ gt::gtsave(gt_table, filename = "outputs/docx/alignment_gt_word.docx")
 
 [Preview the Output](outputs/docx/alignment_gt_word.docx)
 
+-   no issues
+
 ### quarto rendered word file
 
 ```{r eval = FALSE}
@@ -51,6 +56,8 @@ gt_table
 
 [Preview the Output](outputs/docx/alignment_qmd_word.docx)
 
+-   no issues
+
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
@@ -58,3 +65,5 @@ gt_table
 ```
 
 [Preview the Output](outputs/docx/alignment_rmd_word.docx)
+
+-   no issues

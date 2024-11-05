@@ -77,6 +77,8 @@ gt::gtsave(as_gt(summary_table), filename = "outputs/pdf/too_wide_gt_pdf.pdf")
 
 [Preview the Output](outputs/pdf/too_wide_gt_pdf.pdf)
 
+- table cut off at the end of the page (portrait)
+
 ### rmarkdown rendered PDF
 
 ```{r eval = FALSE}
@@ -85,6 +87,8 @@ summary_table
 
 [Preview the Output](outputs/pdf/too_wide_rmd_pdf.pdf)
 
+- table cut off at the end of the page (portrait)
+
 ### gt_save rendered word file
 
 ```{r eval = FALSE}
@@ -92,6 +96,8 @@ gt::gtsave(as_gt(summary_table), filename = "outputs/docx/too_wide_gt_word.docx"
 ```
 
 [Preview the Output](outputs/docx/too_wide_gt_word.docx)
+- table condensed (squished) to fit on the page (text wrapping within cells)
+
 ### quarto rendered word file
 
 ```{r eval = FALSE}
@@ -99,6 +105,8 @@ gt_table
 ```
 
 [Preview the Output](outputs/docx/too_wide_qmd_word.docx)
+- table condensed (squished) to fit on the page (text wrapping within cells)
+
 
 ### rmarkdown rendered word file
 
@@ -108,5 +116,4 @@ gt_table
 
 [Preview the Output](outputs/docx/too_wide_rmd_word.docx)
 
-
-
+- table condensed (squished) to fit on the page (text wrapping within cells)
