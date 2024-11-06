@@ -34,6 +34,9 @@ gt::gtsave(gt_table, filename = "outputs/pdf/linebreaks_gt_pdf.pdf")
 ```
 
 [Preview the Output](outputs/pdf/linebreaks_gt_pdf.pdf)
+- manual linebreaks work
+- title linebreaks work
+- linebreak in a cell works
 
 ### rmarkdown rendered PDF
 
@@ -43,6 +46,10 @@ gt_table
 
 [Preview the Output](outputs/pdf/linebreaks_rmd_pdf.pdf)
 
+- title linebreaks work
+- manual linebreak works but disrupts cell alignment
+- linebreak in a cell doesn't work
+
 ### gt_save rendered word file
 
 ```{r eval = FALSE}
@@ -50,6 +57,9 @@ gt::gtsave(gt_table, filename = "outputs/docx/linebreaks_gt_word.docx")
 ```
 
 [Preview the Output](outputs/docx/linebreaks_gt_word.docx)
+- title linebreak not working
+- cell linebreak not working
+- manual linebreaks work
 
 ### quarto rendered word file
 
@@ -59,6 +69,10 @@ gt_table
 
 [Preview the Output](outputs/docx/linebreaks_qmd_word.docx)
 
+- title linebreak not working
+- cell linebreak not working
+- manual linebreaks work
+
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
@@ -66,3 +80,7 @@ gt_table
 ```
 
 [Preview the Output](outputs/docx/linebreaks_rmd_word.docx)
+
+- title linebreak not working
+- cell linebreak not working
+- manual linebreaks work

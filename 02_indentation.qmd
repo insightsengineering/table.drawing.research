@@ -35,6 +35,7 @@ gt::gtsave(gt_table, filename = "outputs/pdf/indentations_gt_pdf.pdf")
 ```
 
 [Preview the Output](outputs/pdf/indentations_gt_pdf.pdf)
+- no issues
 
 ### rmarkdown rendered PDF
 
@@ -44,6 +45,7 @@ gt_table
 ```
 
 [Preview the Output](outputs/pdf/indentation_rmd_pdf.pdf)
+- no issues
 
 ### gt_save rendered word file
 
@@ -53,6 +55,12 @@ gt::gtsave(gt_table, filename = "outputs/docx/indentation_gt_word.docx")
 
 [Preview the Output](outputs/docx/indentation_gt_word.docx)
 
+-   cell contents replaced with html code
+
+```{html}
+      # <md_container><w:p><w:pPr></w:pPr><w:r><w:rPr></w:rPr><w:t xml:space="preserve">Unknown</w:t></w:r></w:p></md_container>
+```
+
 ### quarto rendered word file
 
 ```{r eval = FALSE}
@@ -61,13 +69,12 @@ gt_table
 
 [Preview the Output](outputs/docx/indentation_qmd_word.docx)
 
+-   No indentation applied
+
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
 gt_table
 ```
 
-[Preview the Output](outputs/docx/indentation_rmd_word.docx)
- the Output](outputs/indentations_word.docx)
-
-
+[Preview the Output](outputs/docx/indentation_rmd_word.docx) the Output\](outputs/indentations_word.docx) - cell contents replaced with html code
