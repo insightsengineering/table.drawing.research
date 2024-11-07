@@ -28,6 +28,8 @@ gt::gtsave(gt_table, filename = "outputs/pdf/titles_gt_pdf.pdf")
 
 [Preview the Output](outputs/pdf/titles_gt_pdf.pdf)
 
+- no issues
+
 ### rmarkdown rendered PDF
 
 ```{r eval = FALSE}
@@ -35,6 +37,8 @@ gt_table
 ```
 
 [Preview the Output](outputs/pdf/titles_rmd_pdf.pdf)
+
+- no issues
 
 ### gt_save rendered word file
 
@@ -44,6 +48,9 @@ gt::gtsave(gt_table, filename = "outputs/docx/titles_gt_word.docx")
 
 [Preview the Output](outputs/docx/titles_gt_word.docx)
 
+- Titles present but right justified
+- no caption
+
 ### quarto rendered word file
 
 ```{r eval = FALSE}
@@ -51,6 +58,9 @@ gt_table
 ```
 
 [Preview the Output](outputs/docx/titles_qmd_word.docx)
+
+- Titles present but right justified
+- no caption
 
 ### rmarkdown rendered word file
 
@@ -60,5 +70,5 @@ gt_table
 
 [Preview the Output](outputs/docx/titles_rmd_word.docx)
 
-
-
+- Titles present but right justified
+- no caption

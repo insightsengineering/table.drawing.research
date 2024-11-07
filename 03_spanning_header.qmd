@@ -29,6 +29,7 @@ gt::gtsave(gt_table, filename = "outputs/pdf/spanning_header_gt_pdf.pdf")
 ```
 
 [Preview the Output](outputs/pdf/spanning_header_gt_pdf.pdf)
+- no issues
 
 ### rmarkdown rendered PDF
 
@@ -37,6 +38,7 @@ gt_table
 ```
 
 [Preview the Output](outputs/pdf/spanning_header_rmd_pdf.pdf)
+- no issues
 
 ### gt_save rendered word file
 
@@ -46,6 +48,8 @@ gt::gtsave(gt_table, filename = "outputs/docx/spanning_header_gt_word.docx")
 
 [Preview the Output](outputs/docx/spanning_header_gt_word.docx)
 
+- no issues
+
 ### quarto rendered word file
 
 ```{r eval = FALSE}
@@ -54,6 +58,8 @@ gt_table
 
 [Preview the Output](outputs/docx/spanning_header_qmd_word.docx)
 
+- no issues
+
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
@@ -61,3 +67,5 @@ gt_table
 ```
 
 [Preview the Output](outputs/docx/spanning_header_rmd_word.docx)
+
+- no issues
