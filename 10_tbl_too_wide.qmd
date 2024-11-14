@@ -77,7 +77,7 @@ gt::gtsave(as_gt(summary_table), filename = "outputs/pdf/too_wide_gt_pdf.pdf")
 
 [Preview the Output](outputs/pdf/too_wide_gt_pdf.pdf)
 
-- table cut off at the end of the page (portrait)
+-   table cut off at the end of the page (portrait)
 
 ### rmarkdown rendered PDF
 
@@ -87,7 +87,7 @@ summary_table
 
 [Preview the Output](outputs/pdf/too_wide_rmd_pdf.pdf)
 
-- table cut off at the end of the page (portrait)
+-   table cut off at the end of the page (portrait)
 
 ### gt_save rendered word file
 
@@ -95,8 +95,7 @@ summary_table
 gt::gtsave(as_gt(summary_table), filename = "outputs/docx/too_wide_gt_word.docx")
 ```
 
-[Preview the Output](outputs/docx/too_wide_gt_word.docx)
-- table condensed (squished) to fit on the page (text wrapping within cells)
+[Preview the Output](outputs/docx/too_wide_gt_word.docx) - table condensed (squished) to fit on the page (text wrapping within cells)
 
 ### quarto rendered word file
 
@@ -104,9 +103,7 @@ gt::gtsave(as_gt(summary_table), filename = "outputs/docx/too_wide_gt_word.docx"
 gt_table
 ```
 
-[Preview the Output](outputs/docx/too_wide_qmd_word.docx)
-- table condensed (squished) to fit on the page (text wrapping within cells)
-
+[Preview the Output](outputs/docx/too_wide_qmd_word.docx) - table condensed (squished) to fit on the page (text wrapping within cells)
 
 ### rmarkdown rendered word file
 
@@ -116,4 +113,88 @@ gt_table
 
 [Preview the Output](outputs/docx/too_wide_rmd_word.docx)
 
-- table condensed (squished) to fit on the page (text wrapping within cells)
+-   table condensed (squished) to fit on the page (text wrapping within cells)
+
+
+## Modifying the gt table
+
+Customization using gt functions may be used to work around issues with pagination when exporting to `docx` file.
+
+Namely:
+- `width()` for adjusting the width of the columns
+- `opt_horizontal_padding()` option to adjust horizontal padding
+- changing font size
+
+[Preview the Output](outputs/docx/too_wide_rmd_word.docx)
+
+```{r}
+library(survival)
+library(gtsummary)
+library(gt)
+
+# wide table, no modifications
+tbl <- list(survfit(Surv(ttdeath, death) ~ trt, trial),
+survfit(Surv(ttdeath, death) ~ grade, trial)) %>%
+tbl_survfit(times = c(2,4,6,8,10,12,24,36.48),
+label_header = "**{time} Month**") %>%
+add_p()
+
+tbl
+
+gt::gtsave(as_gt(tbl), filename = "outputs/docx/too_wide_gt_word_wo_mod.docx")
+
+# wide table with modifications
+tbl2 <- list(survfit(Surv(ttdeath, death) ~ trt, trial),
+survfit(Surv(ttdeath, death) ~ grade, trial)) %>%
+tbl_survfit(times = c(2,4,6,8,10,12,24,36.48),
+label_header = "**{time} Month**") %>%
+add_p() |>
+  as_gt()|>
+ tab_options(
+    table.font.size = px(5),            # Adjust the general font size of the table
+    column_labels.font.size = px(5),    # Adjust the column labels font size
+    table.width = pct(100)                # Adjust the table width (percentage of the page width)
+  ) 
+
+tbl2
+
+gt::gtsave(tbl2, split = TRUE, filename = "outputs/docx/too_wide_gt_word_font.docx")
+
+
+# This works in the console but when exported, the table is blank
+tbl3 <- tbl2 |>
+   # Adjust padding for the body cells (use the correct padding style here)
+  tab_style(
+    style = list(
+      cell_text(
+        size = px(5)  # Apply padding to text in body cells
+      )
+    ),
+    locations = cells_body()  # Apply padding to all body cells
+  )
+
+tbl3
+
+gt::gtsave(tbl3, split = TRUE, filename = "outputs/docx/too_wide_gt_word_padding.docx")
+
+# when adding padding to the column labels, title disappears in the export
+tbl4 <- tbl2 |>
+  tab_style(
+    style = list(
+      cell_text(
+        size = px(10)  # Apply padding to column labels
+      )
+    ),
+    locations = cells_column_labels()  # Apply padding to column labels
+  )
+
+tbl4
+
+gt::gtsave(tbl4, split = TRUE, filename = "outputs/docx/too_wide_gt_word_padding_cols.docx")
+
+```
+
+[Preview the Output - Without Modification](outputs/docx/too_wide_gt_word_wo_mod.docx)
+[Preview the Output - Modify Font and Table Width](outputs/docx/too_wide_gt_word_font.docx)
+[Preview the Output - Modify Padding](outputs/docx/too_wide_gt_word_padding.docx)
+[Preview the Output - Modify Column Padding](outputs/docx/too_wide_gt_word_padding_cols.docx)
