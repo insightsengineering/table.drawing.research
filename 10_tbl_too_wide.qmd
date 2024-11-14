@@ -116,7 +116,12 @@ gt_table
 -   table condensed (squished) to fit on the page (text wrapping within cells)
 
 
-## Modifying the gt table
+## docx output using as_flextable()
+
+This work has been deprioritized as table customizations are done using {gt} functions which is not compatible with the `as_flextable` function in {gtsummary}. {flextable} functions will need to be used to add table customzation AND export.
+
+
+## Modifying the gt table before export
 
 Customization using gt functions may be used to work around issues with pagination when exporting to `docx` file.
 
@@ -143,6 +148,8 @@ tbl
 
 gt::gtsave(as_gt(tbl), filename = "outputs/docx/too_wide_gt_word_wo_mod.docx")
 
+```
+```{r}
 # wide table with modifications
 tbl2 <- list(survfit(Surv(ttdeath, death) ~ trt, trial),
 survfit(Surv(ttdeath, death) ~ grade, trial)) %>%
@@ -161,6 +168,9 @@ tbl2
 gt::gtsave(tbl2, split = TRUE, filename = "outputs/docx/too_wide_gt_word_font.docx")
 
 
+```
+```{r}
+
 # This works in the console but when exported, the table is blank
 tbl3 <- tbl2 |>
    # Adjust padding for the body cells (use the correct padding style here)
@@ -176,7 +186,10 @@ tbl3 <- tbl2 |>
 tbl3
 
 gt::gtsave(tbl3, split = TRUE, filename = "outputs/docx/too_wide_gt_word_padding.docx")
+```
 
+
+```{r}
 # when adding padding to the column labels, title disappears in the export
 tbl4 <- tbl2 |>
   tab_style(
@@ -191,7 +204,6 @@ tbl4 <- tbl2 |>
 tbl4
 
 gt::gtsave(tbl4, split = TRUE, filename = "outputs/docx/too_wide_gt_word_padding_cols.docx")
-
 ```
 
 [Preview the Output - Without Modification](outputs/docx/too_wide_gt_word_wo_mod.docx)
