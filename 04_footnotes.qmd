@@ -12,7 +12,8 @@ library(gtsummary)
 tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
 
 gt_table <- tbl$table_body |> 
-  gt::gt(caption = gt::md("This is the caption  \n[Used for cross referencing in Quarto; but I don't think a footnote can be attached]")) |> 
+  gt::gt(caption = gt::md("This is the caption  \n[Used for cross referencing in Quarto; but I don't think a footnote can be attached]")) |>
+  gt::cols_hide(columns = c(variable, var_type, row_type, var_label)) |> 
   gt::sub_missing(missing_text = "") |> 
   gt::tab_spanner(gt::md("**Spanning Level 1**"), columns = gtsummary::all_stat_cols(FALSE), level = 1L, id = "stat_1_L1") |>
   # footnotes
@@ -41,7 +42,7 @@ gt_table
 
 [Preview the Output](outputs/pdf/footnotes_rmd_pdf.pdf)
 
-- no issues
+-   no issues
 
 ### gt_save rendered word file
 
@@ -51,7 +52,7 @@ gt::gtsave(gt_table, filename = "outputs/docx/footnotes_gt_word.docx")
 
 [Preview the Output](outputs/docx/footnotes_gt_word.docx)
 
-- no issues
+-   no issues
 
 ### quarto rendered word file
 
@@ -59,8 +60,7 @@ gt::gtsave(gt_table, filename = "outputs/docx/footnotes_gt_word.docx")
 gt_table
 ```
 
-[Preview the Output](outputs/docx/footnotes_qmd_word.docx)
-- no issues
+[Preview the Output](outputs/docx/footnotes_qmd_word.docx) - no issues
 
 ### rmarkdown rendered word file
 
@@ -70,4 +70,4 @@ gt_table
 
 [Preview the Output](outputs/docx/footnotes_rmd_word.docx)
 
-- no issues
+-   no issues
