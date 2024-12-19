@@ -9,15 +9,17 @@ editor:
 
 # Overview
 
-Tables built in {gtsummary} typically use {gt} functions to draw and render 
-tables in different output formats. As a result, not all table customization
-translated correctly. This repo is used to experiment and identify potential
-adaptions to {gt} functions to maintain as much of the table decoration as possible
-when exporting to other formats. Currently exploring: HTML, PDF 
-(with and without Typst), and Word (.docx) outputs.
+Tables built in {gtsummary} typically use {gt} functions to draw and
+render tables in different output formats. As a result, not all table
+customization translated correctly. This repo is used to experiment and
+identify potential adaptions to {gt} functions to maintain as much of
+the table decoration as possible when exporting to other formats.
+Currently exploring: HTML, PDF (with and without Typst), and Word
+(.docx) outputs.
 
-Below is the sample {gtsummary} table with notable customizations (footnotes, 
-headers, titles, linebreaks, indentations, etc.) we are tracking.
+Below is the sample {gtsummary} table with notable customizations
+(footnotes, headers, titles, linebreaks, indentations, etc.) we are
+tracking.
 
 ```{r}
 #| echo: false
@@ -68,3 +70,25 @@ tbl$table_body |>
   # title, subtitle, and captions
   gt::tab_header(gt::md("This is the Title  \nwith a linebreak"), subtitle = "This is the Subtitle")
 ```
+
+# List of Findings:
+
+After testing each feature with different rendering/output engines, the
+following changes were discovered/requested for change:
+
+#### Features Requests for {gt} --\> gtsave(.docx)
+
+-   No caption in all .docx exports
+
+-   Titles are left-justified (not centered with table)
+
+-   Linebreaks aren't applied to "header" content.
+
+-   "Table 1" text automatically added when supplied a title.
+
+-   Horizontal pagination? (by default the table is cropped)
+
+##### Nice to Haves:
+
+-   gt::fmt_markdown(columns = label) returns XML code in .docx file
+    with indentation.
