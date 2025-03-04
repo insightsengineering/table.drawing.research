@@ -68,3 +68,13 @@ tbl$table_body |>
   # title, subtitle, and captions
   gt::tab_header(gt::md("This is the Title  \nwith a linebreak"), subtitle = "This is the Subtitle")
 ```
+
+
+### Issue Log
+Here we document things that were discovered through this output analysis with date stamps that can be updated as feature requests are addressed.
+
+2025-03-03
+- No caption in all .docx exports
+- Titles in .docx output (using gtsave) are left-justified (not centered with the table)
+- Linebreaks aren't applied to "header" content in .docx output
+- "Table 1" text is automatically added when not supplied a title (.docx)
