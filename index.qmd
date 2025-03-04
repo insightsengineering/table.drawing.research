@@ -25,7 +25,7 @@ headers, titles, linebreaks, indentations, etc.) we are tracking.
 library(gtsummary)
 tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age  \n\U00A0\U00A0linebreak in a cell")) |> add_overall()
 tbl$table_body |> 
-  gt::gt(caption = gt::md("This is the caption  \n[Used for cross referencing in Quarto; but I don't think a footnote can be attached]")) |> 
+  gt::gt(caption = gt::md("This is the caption  \n[Used for cross referencing in Quarto]")) |> 
   gt::fmt_markdown(columns = label) |> # need this to recognize the line break in the table body
   gt::cols_hide(columns = c(variable, var_type, row_type, var_label)) |> 
   gt::sub_missing(missing_text = "") |> 

@@ -3,6 +3,7 @@ project:
   output-dir: docs
   render:
     - "*.qmd"
+    - "!renderdocs/"
 
 website:
   page-navigation: true
