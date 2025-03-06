@@ -49,6 +49,8 @@ website:
        text: Table Too Wide
      - href: 11_other_engines.qmd
        text: Other Engines
+     - href: 12_col_widths.qmd
+       text: Adjust Column Width
 
 format:
   html:
