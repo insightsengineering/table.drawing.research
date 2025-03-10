@@ -17,6 +17,8 @@ gt_table <- tbl$table_body |>
   gt::tab_source_note("This is Source Note 1") |> 
   gt::tab_source_note("This is Source Note 2") |> 
   gt::tab_source_note("Abbreviations: Q1 = First Quartile; Q3 = Third Quartile")
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -25,8 +27,9 @@ gt_table <- tbl$table_body |>
 gt::gtsave(gt_table, filename = "outputs/pdf/source_notes_gt_pdf.pdf")
 ```
 
-[Preview the Output](outputs/pdf/footnotes_gt_pdf.pdf)
--no issues
+[Preview the Output](outputs/pdf/footnotes_gt_pdf.pdf) 
+-no issues 
+
 ### rmarkdown rendered PDF
 
 ```{r eval = FALSE}
@@ -35,7 +38,7 @@ gt_table
 
 [Preview the Output](outputs/pdf/source_notes_rmd_pdf.pdf)
 
-- no issues
+-   no issues
 
 ### gt_save rendered word file
 
@@ -45,7 +48,7 @@ gt::gtsave(gt_table, filename = "outputs/docx/source_notes_gt_word.docx")
 
 [Preview the Output](outputs/docx/source_notes_gt_word.docx)
 
-- no issues
+-   no issues
 
 ### quarto rendered word file
 
@@ -55,7 +58,7 @@ gt_table
 
 [Preview the Output](outputs/docx/source_notes_qmd_word.docx)
 
-- no issues
+-   no issues
 
 ### rmarkdown rendered word file
 
@@ -65,4 +68,4 @@ gt_table
 
 [Preview the Output](outputs/docx/source_notes_rmd_word.docx)
 
-- no issues
+-   no issues

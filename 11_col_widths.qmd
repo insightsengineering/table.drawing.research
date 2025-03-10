@@ -1,0 +1,84 @@
+---
+title: "Setting Column Widths"
+format: html
+editor: visual
+---
+
+## Adjusting column Widths output
+
+Default column width (no manipulation)
+```{r eval=T}
+
+library(gtsummary)
+tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
+  
+tbl
+```
+
+Using the `pct()` function within the `col_widths()` function from the {gt} package.
+```{r}
+
+tbl <- tbl |>
+  as_gt()|>
+  gt::cols_width(
+        contains("label") ~ pct(70),
+        everything() ~ pct(30))
+tbl
+
+```
+
+### gt_save PDF
+
+```{r, eval=FALSE}
+gt::gtsave(tbl, filename = "outputs/pdf/col_widths_gt_pdf.pdf")
+```
+
+[Preview the Output](outputs/pdf/col_widths_gt_pdf.pdf)
+- column width applied, all cols fit on page
+
+### rmarkdown rendered PDF
+
+```{r eval = FALSE}
+tbl
+```
+
+[Preview the Output](outputs/pdf/col_widths_rmd_pdf.pdf)
+- column width applied, table cut off after 1 col
+
+### quarto rendered PDF
+
+```{r eval = FALSE}
+tbl
+```
+
+[Preview the Output](outputs/pdf/col_widths_qmd_pdf.pdf)
+- column width applied, table cut off after 1 col
+
+### gt_save rendered word file
+
+```{r eval = FALSE}
+gt::gtsave(tbl, filename = "outputs/docx/col_widths_gt_word.docx")
+```
+
+[Preview the Output](outputs/docx/col_widths_gt_word.docx)
+- new column width isn't applied
+
+### quarto rendered word file
+
+```{r eval = FALSE}
+tbl
+```
+
+[Preview the Output](outputs/docx/col_widths_qmd_word.docx)
+- new column width isn't applied
+
+
+### rmarkdown rendered word file
+
+```{r eval = FALSE}
+tbl
+```
+
+[Preview the Output](outputs/docx/col_widths_rmd_word.docx)
+- new column width isn't applied
+

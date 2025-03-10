@@ -21,6 +21,8 @@ gt_table <- tbl$table_body |>
   gt::tab_footnote("Footnote in Spanning Header", locations = gt::cells_column_spanners(spanners = "stat_1_L1")) |> 
   gt::tab_footnote("Footnote in Subtitle", locations = gt::cells_title("subtitle")) |> 
   gt::tab_footnote("Footnote in Title", locations = gt::cells_title("title")) 
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -41,7 +43,7 @@ gt_table
 
 [Preview the Output](outputs/pdf/footnotes_rmd_pdf.pdf)
 
-- no issues
+-   no issues
 
 ### gt_save rendered word file
 
@@ -51,7 +53,7 @@ gt::gtsave(gt_table, filename = "outputs/docx/footnotes_gt_word.docx")
 
 [Preview the Output](outputs/docx/footnotes_gt_word.docx)
 
-- no issues
+-   no issues
 
 ### quarto rendered word file
 
@@ -59,7 +61,7 @@ gt::gtsave(gt_table, filename = "outputs/docx/footnotes_gt_word.docx")
 gt_table
 ```
 
-[Preview the Output](outputs/docx/footnotes_qmd_word.docx)
+[Preview the Output](outputs/docx/footnotes_qmd_word.docx) 
 - no issues
 
 ### rmarkdown rendered word file
@@ -70,4 +72,4 @@ gt_table
 
 [Preview the Output](outputs/docx/footnotes_rmd_word.docx)
 
-- no issues
+-   no issues

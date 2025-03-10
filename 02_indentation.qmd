@@ -26,6 +26,8 @@ gt_table <- tbl$table_body |>
     locations = gt::cells_body(columns = label, rows = row_type %in% "missing"),
     fn = function(x) paste0(strrep("\U00A0", times = 4), x)
   ) 
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -34,8 +36,7 @@ gt_table <- tbl$table_body |>
 gt::gtsave(gt_table, filename = "outputs/pdf/indentations_gt_pdf.pdf")
 ```
 
-[Preview the Output](outputs/pdf/indentations_gt_pdf.pdf)
-- no issues
+[Preview the Output](outputs/pdf/indentations_gt_pdf.pdf) - no issues
 
 ### rmarkdown rendered PDF
 
@@ -44,8 +45,7 @@ gt::gtsave(gt_table, filename = "outputs/pdf/indentations_gt_pdf.pdf")
 gt_table
 ```
 
-[Preview the Output](outputs/pdf/indentation_rmd_pdf.pdf)
-- no issues
+[Preview the Output](outputs/pdf/indentation_rmd_pdf.pdf) - no issues
 
 ### gt_save rendered word file
 

@@ -1,0 +1,17 @@
+---
+title: "Column Widths"
+format: docx
+---
+
+```{r echo = FALSE}
+library(gtsummary)
+tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall() |>
+ as_gt()|>
+  gt::cols_width(
+        contains("label") ~ pct(70),
+        everything() ~ pct(30))
+
+tbl
+```
+
+

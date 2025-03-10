@@ -47,8 +47,11 @@ website:
        text: Table Too Long
      - href: 10_tbl_too_wide.qmd
        text: Table Too Wide
-     - href: 11_other_engines.qmd
+     - href: 11_col_widths.qmd
+       text: Adjust Column Width
+     - href: 12_other_engines.qmd
        text: Other Engines
+
 
 format:
   html:

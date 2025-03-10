@@ -10,7 +10,7 @@ Line breaks not being rendered correctly in a PDF is a known issue. We will skip
 
 The example table evaluates line breaks in: - Title - Column Headers - Table Header - Cells
 
-```{r eval=FALSE}
+```{r eval=TRUE}
 
 library(gtsummary)
 tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age  \n\U00A0\U00A0linebreak in a cell")) |> add_overall()
@@ -25,6 +25,8 @@ gt_table <- tbl$table_body |>
   ) |> 
   gt::tab_header(gt::md("This is the Title  \nwith a linebreak"), subtitle = "This is the Subtitle")
 
+gt_table
+
 ```
 
 ### gt_save PDF
@@ -33,10 +35,7 @@ gt_table <- tbl$table_body |>
 gt::gtsave(gt_table, filename = "outputs/pdf/linebreaks_gt_pdf.pdf")
 ```
 
-[Preview the Output](outputs/pdf/linebreaks_gt_pdf.pdf)
-- manual linebreaks work
-- title linebreaks work
-- linebreak in a cell works
+[Preview the Output](outputs/pdf/linebreaks_gt_pdf.pdf) - manual linebreaks work - title linebreaks work - linebreak in a cell works
 
 ### rmarkdown rendered PDF
 
@@ -46,9 +45,9 @@ gt_table
 
 [Preview the Output](outputs/pdf/linebreaks_rmd_pdf.pdf)
 
-- title linebreaks work
-- manual linebreak works but disrupts cell alignment
-- linebreak in a cell doesn't work
+-   title linebreaks work
+-   manual linebreak works but disrupts cell alignment
+-   linebreak in a cell doesn't work
 
 ### gt_save rendered word file
 
@@ -56,10 +55,7 @@ gt_table
 gt::gtsave(gt_table, filename = "outputs/docx/linebreaks_gt_word.docx")
 ```
 
-[Preview the Output](outputs/docx/linebreaks_gt_word.docx)
-- title linebreak not working
-- cell linebreak not working
-- manual linebreaks work
+[Preview the Output](outputs/docx/linebreaks_gt_word.docx) - title linebreak not working - cell linebreak not working - manual linebreaks work
 
 ### quarto rendered word file
 
@@ -69,9 +65,9 @@ gt_table
 
 [Preview the Output](outputs/docx/linebreaks_qmd_word.docx)
 
-- title linebreak not working
-- cell linebreak not working
-- manual linebreaks work
+-   title linebreak not working
+-   cell linebreak not working
+-   manual linebreaks work
 
 ### rmarkdown rendered word file
 
@@ -81,6 +77,6 @@ gt_table
 
 [Preview the Output](outputs/docx/linebreaks_rmd_word.docx)
 
-- title linebreak not working
-- cell linebreak not working
-- manual linebreaks work
+-   title linebreak not working
+-   cell linebreak not working
+-   manual linebreaks work

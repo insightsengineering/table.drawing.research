@@ -6,7 +6,7 @@ editor: visual
 
 ## Testing output when the table is too long
 
-```{r eval=FALSE}
+```{r eval=T}
 library(gtsummary)
 library(dplyr)
 
@@ -67,6 +67,8 @@ summary_table <- data %>%
   modify_header(label = "**Characteristic**", estimate = "**Mean (SD) or N (%)**") %>%
   modify_table_styling(columns = everything()) %>%
   add_overall()  # This adds an overall column
+
+summary_table
 ```
 
 ### gt_save PDF
@@ -77,7 +79,7 @@ gt::gtsave(as_gt(summary_table), filename = "outputs/pdf/too_wide_gt_pdf.pdf")
 
 [Preview the Output](outputs/pdf/too_wide_gt_pdf.pdf)
 
-- table cut off at the end of the page (portrait)
+-   table cut off at the end of the page (portrait)
 
 ### rmarkdown rendered PDF
 
@@ -87,7 +89,7 @@ summary_table
 
 [Preview the Output](outputs/pdf/too_wide_rmd_pdf.pdf)
 
-- table cut off at the end of the page (portrait)
+-   table cut off at the end of the page (portrait)
 
 ### gt_save rendered word file
 
@@ -95,8 +97,7 @@ summary_table
 gt::gtsave(as_gt(summary_table), filename = "outputs/docx/too_wide_gt_word.docx")
 ```
 
-[Preview the Output](outputs/docx/too_wide_gt_word.docx)
-- table condensed (squished) to fit on the page (text wrapping within cells)
+[Preview the Output](outputs/docx/too_wide_gt_word.docx) - table condensed (squished) to fit on the page (text wrapping within cells)
 
 ### quarto rendered word file
 
@@ -104,9 +105,7 @@ gt::gtsave(as_gt(summary_table), filename = "outputs/docx/too_wide_gt_word.docx"
 gt_table
 ```
 
-[Preview the Output](outputs/docx/too_wide_qmd_word.docx)
-- table condensed (squished) to fit on the page (text wrapping within cells)
-
+[Preview the Output](outputs/docx/too_wide_qmd_word.docx) - table condensed (squished) to fit on the page (text wrapping within cells)
 
 ### rmarkdown rendered word file
 
@@ -116,4 +115,4 @@ gt_table
 
 [Preview the Output](outputs/docx/too_wide_rmd_word.docx)
 
-- table condensed (squished) to fit on the page (text wrapping within cells)
+-   table condensed (squished) to fit on the page (text wrapping within cells)
