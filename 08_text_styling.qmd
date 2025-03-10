@@ -6,7 +6,7 @@ editor: visual
 
 ## Testing Text Styling output
 
-```{r eval=FALSE}
+```{r eval=T}
 
 library(gtsummary)
 tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
@@ -18,6 +18,8 @@ gt_table <- tbl$table_body |>
     style = gt::cell_text(weight = "bold"), 
     locations = gt::cells_body(columns = "label", rows = c(1, 3))
   ) 
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -28,7 +30,7 @@ gt::gtsave(gt_table, filename = "outputs/pdf/bold_gt_pdf.pdf")
 
 [Preview the Output](outputs/pdf/bold_gt_pdf.pdf)
 
-- no issues
+-   no issues
 
 ### rmarkdown rendered PDF
 
@@ -38,7 +40,7 @@ gt_table
 
 [Preview the Output](outputs/pdf/bold_rmd_pdf.pdf)
 
-- no issues
+-   no issues
 
 ### gt_save rendered word file
 
@@ -48,7 +50,7 @@ gt::gtsave(gt_table, filename = "outputs/docx/bold_gt_word.docx")
 
 [Preview the Output](outputs/docx/bold_gt_word.docx)
 
-- no issues
+-   no issues
 
 ### quarto rendered word file
 
@@ -58,7 +60,7 @@ gt_table
 
 [Preview the Output](outputs/docx/bold_qmd_word.docx)
 
-- no issues
+-   no issues
 
 ### rmarkdown rendered word file
 
@@ -68,4 +70,4 @@ gt_table
 
 [Preview the Output](outputs/docx/bold_rmd_word.docx)
 
-- no issues
+-   no issues

@@ -6,7 +6,7 @@ editor: visual
 
 ## Testing Alignments output
 
-```{r eval=FALSE}
+```{r eval=T}
 
 library(gtsummary)
 tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
@@ -16,6 +16,8 @@ gt_table <- tbl$table_body |>
   gt::cols_align(columns = c(stat_1, stat_2), align = "right") |> 
   gt::cols_align(columns = c(variable, var_type), align = "center") |>
   gt::cols_align(columns = c(row_type, var_label), align = "left")
+
+gt_table
 ```
 
 ### gt_save PDF

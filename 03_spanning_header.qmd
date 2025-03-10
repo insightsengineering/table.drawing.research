@@ -20,6 +20,8 @@ gt_table <- tbl$table_body |>
   gt::tab_spanner(gt::md("**Spanning Level 2**"), columns = gtsummary::all_stat_cols(), level = 2L, id = "stat_1_L2") |> 
   gt::tab_spanner(gt::md("**Spanning Level 1**"), columns = gtsummary::all_stat_cols(FALSE), level = 1L, id = "stat_1_L1") |> 
   gt::tab_spanner(gt::md("**Both Treatments**"), columns = stat_0, level = 1L, id = "stat_0_L1") 
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -28,7 +30,7 @@ gt_table <- tbl$table_body |>
 gt::gtsave(gt_table, filename = "outputs/pdf/spanning_header_gt_pdf.pdf")
 ```
 
-[Preview the Output](outputs/pdf/spanning_header_gt_pdf.pdf)
+[Preview the Output](outputs/pdf/spanning_header_gt_pdf.pdf) 
 - no issues
 
 ### rmarkdown rendered PDF
@@ -37,7 +39,7 @@ gt::gtsave(gt_table, filename = "outputs/pdf/spanning_header_gt_pdf.pdf")
 gt_table
 ```
 
-[Preview the Output](outputs/pdf/spanning_header_rmd_pdf.pdf)
+[Preview the Output](outputs/pdf/spanning_header_rmd_pdf.pdf) 
 - no issues
 
 ### gt_save rendered word file
@@ -48,7 +50,7 @@ gt::gtsave(gt_table, filename = "outputs/docx/spanning_header_gt_word.docx")
 
 [Preview the Output](outputs/docx/spanning_header_gt_word.docx)
 
-- no issues
+-   no issues
 
 ### quarto rendered word file
 
@@ -58,7 +60,7 @@ gt_table
 
 [Preview the Output](outputs/docx/spanning_header_qmd_word.docx)
 
-- no issues
+-   no issues
 
 ### rmarkdown rendered word file
 
@@ -68,4 +70,4 @@ gt_table
 
 [Preview the Output](outputs/docx/spanning_header_rmd_word.docx)
 
-- no issues
+-   no issues
