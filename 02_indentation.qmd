@@ -33,8 +33,8 @@ gt_table <- tbl$table_body |>
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/pdf/indentations_gt_pdf.pdf")
 ```
-
-[Preview the Output](outputs/pdf/indentations_gt_pdf.pdf)
+###### Preview the Output
+![](outputs/pdf/indentations_gt_pdf.pdf){width=80% height=1000}
 - no issues
 
 ### rmarkdown rendered PDF
@@ -43,8 +43,8 @@ gt::gtsave(gt_table, filename = "outputs/pdf/indentations_gt_pdf.pdf")
 
 gt_table
 ```
-
-[Preview the Output](outputs/pdf/indentation_rmd_pdf.pdf)
+###### Preview the Output
+![](outputs/pdf/indentation_rmd_pdf.pdf){width=80% height=1000}
 - no issues
 
 ### gt_save rendered word file
@@ -52,9 +52,8 @@ gt_table
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/docx/indentation_gt_word.docx")
 ```
-
-[Preview the Output](outputs/docx/indentation_gt_word.docx)
-
+###### Preview the Output
+![](outputs/docx/indentation_gt_word.docx){width=80% height=1000}
 -   cell contents replaced with html code
 
 ```{html}
@@ -66,9 +65,8 @@ gt::gtsave(gt_table, filename = "outputs/docx/indentation_gt_word.docx")
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/docx/indentation_qmd_word.docx)
-
+###### Preview the Output
+![](outputs/docx/indentation_qmd_word.docx){width=80% height=1000}
 -   No indentation applied
 
 ### rmarkdown rendered word file
@@ -76,5 +74,6 @@ gt_table
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/docx/indentation_rmd_word.docx) the Output\](outputs/indentations_word.docx) - cell contents replaced with html code
+###### Preview the Output
+![](outputs/indentations_word.docx){width=80% height=1000}
+- cell contents replaced with html code

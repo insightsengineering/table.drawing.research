@@ -25,47 +25,42 @@ gt_table <- tbl$table_body |>
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/pdf/bold_gt_pdf.pdf")
 ```
-
-[Preview the Output](outputs/pdf/bold_gt_pdf.pdf)
-
-- no issues
+###### Preview the Output
+![](outputs/pdf/bold_gt_pdf.pdf){width=80% height=1000}
+-   no issues
 
 ### rmarkdown rendered PDF
 
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/pdf/bold_rmd_pdf.pdf)
-
-- no issues
+###### Preview the Output
+![](outputs/pdf/bold_rmd_pdf.pdf){width=80% height=1000}
+-   no issues
 
 ### gt_save rendered word file
 
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/docx/bold_gt_word.docx")
 ```
-
-[Preview the Output](outputs/docx/bold_gt_word.docx)
-
-- no issues
+###### Preview the Output
+![](outputs/docx/bold_gt_word.docx){width=80% height=1000}
+-   no issues
 
 ### quarto rendered word file
 
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/docx/bold_qmd_word.docx)
-
-- no issues
+###### Preview the Output
+![](outputs/docx/bold_qmd_word.docx){width=80% height=1000}
+-   no issues
 
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/docx/bold_rmd_word.docx)
-
-- no issues
+###### Preview the Output
+![](outputs/docx/bold_rmd_word.docx){width=80% height=1000}
+-   no issues

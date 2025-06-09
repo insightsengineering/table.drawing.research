@@ -33,9 +33,10 @@ gt_table <- tbl$table_body |>
 gt::gtsave(gt_table, filename = "outputs/pdf/linebreaks_gt_pdf.pdf")
 ```
 
-[Preview the Output](outputs/pdf/linebreaks_gt_pdf.pdf)
-- manual linebreaks work
-- title linebreaks work
+###### Preview the Output
+![](outputs/pdf/linebreaks_gt_pdf.pdf){width=80% height=1000}
+- manual linebreaks work 
+- title linebreaks work 
 - linebreak in a cell works
 
 ### rmarkdown rendered PDF
@@ -43,22 +44,23 @@ gt::gtsave(gt_table, filename = "outputs/pdf/linebreaks_gt_pdf.pdf")
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/pdf/linebreaks_rmd_pdf.pdf)
-
-- title linebreaks work
-- manual linebreak works but disrupts cell alignment
-- linebreak in a cell doesn't work
+###### Preview the Output
+![](outputs/pdf/linebreaks_rmd_pdf.pdf){width=80% height=1000}
+-   title linebreaks work
+-   manual linebreak works but disrupts cell alignment
+-   linebreak in a cell doesn't work
 
 ### gt_save rendered word file
 
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/docx/linebreaks_gt_word.docx")
+# converting word to pdf locally 
+# doconv::docx2pdf(outputs/docx/linebreaks_gt_word.docx)
 ```
-
-[Preview the Output](outputs/docx/linebreaks_gt_word.docx)
-- title linebreak not working
-- cell linebreak not working
+###### Preview the Output
+![](outputs/docx/linebreaks_gt_word.docx){width=80% height=1000}
+- title linebreak not working 
+- cell linebreak not working 
 - manual linebreaks work
 
 ### quarto rendered word file
@@ -66,21 +68,19 @@ gt::gtsave(gt_table, filename = "outputs/docx/linebreaks_gt_word.docx")
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/docx/linebreaks_qmd_word.docx)
-
-- title linebreak not working
-- cell linebreak not working
-- manual linebreaks work
+###### Preview the Output
+![](outputs/docx/linebreaks_qmd_word.docx){width=80% height=1000}
+-   title linebreak not working
+-   cell linebreak not working
+-   manual linebreaks work
 
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/docx/linebreaks_rmd_word.docx)
-
-- title linebreak not working
-- cell linebreak not working
-- manual linebreaks work
+###### Preview the Output
+![](outputs/docx/linebreaks_rmd_word.docx){width=80% height=1000}
+-   title linebreak not working
+-   cell linebreak not working
+-   manual linebreaks work

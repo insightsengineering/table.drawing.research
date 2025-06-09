@@ -23,9 +23,8 @@ gt_table <- tbl$table_body |>
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/pdf/alignment_gt_pdf.pdf")
 ```
-
-[Preview the Output](outputs/pdf/alignment_gt_pdf.pdf)
-
+###### Preview the Output
+![](outputs/pdf/alignment_gt_pdf.pdf){width=80% height=1000}
 -   no issues
 
 ### rmarkdown rendered PDF
@@ -33,9 +32,8 @@ gt::gtsave(gt_table, filename = "outputs/pdf/alignment_gt_pdf.pdf")
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/pdf/alignment_rmd_pdf.pdf)
-
+###### Preview the Output
+![](outputs/pdf/alignment_rmd_pdf.pdf){width=80% height=1000}
 -   no issues
 
 ### gt_save rendered word file
@@ -43,9 +41,8 @@ gt_table
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/docx/alignment_gt_word.docx")
 ```
-
-[Preview the Output](outputs/docx/alignment_gt_word.docx)
-
+###### Preview the Output
+![](outputs/docx/alignment_gt_word.docx){width=80% height=1000}
 -   no issues
 
 ### quarto rendered word file
@@ -53,9 +50,8 @@ gt::gtsave(gt_table, filename = "outputs/docx/alignment_gt_word.docx")
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/docx/alignment_qmd_word.docx)
-
+###### Preview the Output
+![](outputs/docx/alignment_qmd_word.docx){width=80% height=1000}
 -   no issues
 
 ### rmarkdown rendered word file
@@ -63,7 +59,6 @@ gt_table
 ```{r eval = FALSE}
 gt_table
 ```
-
-[Preview the Output](outputs/docx/alignment_rmd_word.docx)
-
+###### Preview the Output
+![](outputs/docx/alignment_rmd_word.docx){width=80% height=1000}
 -   no issues
