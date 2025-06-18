@@ -55,10 +55,10 @@ gt_table
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/docx/linebreaks_gt_word.docx")
 # converting word to pdf locally 
-# doconv::docx2pdf(outputs/docx/linebreaks_gt_word.docx)
+# doconv::docx2pdf("outputs/docx/linebreaks_gt_word.docx")
 ```
 ###### Preview the Output
-![](outputs/docx/linebreaks_gt_word.docx){width=80% height=1000}
+![](outputs/docx/linebreaks_gt_word.pdf){width=80% height=1000}
 - title linebreak not working 
 - cell linebreak not working 
 - manual linebreaks work
@@ -67,9 +67,11 @@ gt::gtsave(gt_table, filename = "outputs/docx/linebreaks_gt_word.docx")
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+# doconv::docx2pdf("outputs/docx/linebreaks_qmd_word.docx")
 ```
 ###### Preview the Output
-![](outputs/docx/linebreaks_qmd_word.docx){width=80% height=1000}
+![](outputs/docx/linebreaks_qmd_word.pdf){width=80% height=1000}
 -   title linebreak not working
 -   cell linebreak not working
 -   manual linebreaks work
@@ -78,9 +80,11 @@ gt_table
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+# doconv::docx2pdf("outputs/docx/linebreaks_rmd_word.docx")
 ```
 ###### Preview the Output
-![](outputs/docx/linebreaks_rmd_word.docx){width=80% height=1000}
+![](outputs/docx/linebreaks_rmd_word.pdf){width=80% height=1000}
 -   title linebreak not working
 -   cell linebreak not working
 -   manual linebreaks work
