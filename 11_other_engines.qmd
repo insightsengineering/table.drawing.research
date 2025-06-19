@@ -26,6 +26,7 @@ gt_table
 ```
 
 ###### Preview the Output
-![](outputs/quarto_typst.pdf){width=80% height=1000}
+
+![](outputs/quarto_typst.pdf){width="80%" height="1000"}
 
 {{< pdf outputs/quarto_typst.pdf width=100% height=800 >}}

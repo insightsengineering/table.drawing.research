@@ -75,50 +75,63 @@ summary_table <- data %>%
 ```{r eval = FALSE}
 gt::gtsave(as_gt(summary_table), filename = "outputs/pdf/too_long_gt_pdf.pdf")
 ```
+
 ###### Preview the Output
-![](outputs/pdf/too_long_gt_pdf.pdf){width=80% height=1000}
--   printed on multiple pages
--   header and footnotes repeated on each page
+
+![](outputs/pdf/too_long_gt_pdf.pdf){width="80%" height="1000"} 
+- printed on multiple pages 
+- header and footnotes repeated on each page
 
 ### rmarkdown rendered PDF
 
 ```{r eval = FALSE}
 gt_table
 ```
+
 ###### Preview the Output
-![](outputs/pdf/too_long_rmd_pdf.pdf){width=80% height=1000}
--   printed on one page
--   table cut off at the end of the page
+
+![](outputs/pdf/too_long_rmd_pdf.pdf){width="80%" height="1000"} 
+- printed on one page 
+- table cut off at the end of the page
 
 ### gt_save rendered word file
 
 ```{r eval = FALSE}
 gt::gtsave(as_gt(summary_table), filename = "outputs/docx/too_long_gt_word.docx")
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/too_long_gt_word.docx")
 ```
+
 ###### Preview the Output
-![](outputs/docx/too_long_gt_word.docx){width=80% height=1000}
--   printed on multiple pages (continued)
--   header repeated on each page
--   footer only on the last page
+
+![](outputs/docx/too_long_gt_word.pdf){width="80%" height="1000"} 
+- printed on multiple pages (continued) 
+- header repeated on each page 
+- footer only on the last page
 
 ### quarto rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/too_long_qmd_word.docx")
 ```
+
 ###### Preview the Output
-![](outputs/docx/too_long_qmd_word.docx){width=80% height=1000}
--   printed on multiple pages (continued)
--   header repeated on each page
--   footer only on the last page
+
+![](outputs/docx/too_long_qmd_word.pdf){width="80%" height="1000"} - printed on multiple pages (continued) - header repeated on each page - footer only on the last page
 
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/too_long_rmd_word.docx")
 ```
+
 ###### Preview the Output
-![](outputs/docx/too_long_rmd_word.docx){width=80% height=1000}
--   printed on multiple pages (continued)
--   header repeated on each page
--   footer only on the last page
+
+![](outputs/docx/too_long_rmd_word.pdf){width="80%" height="1000"} 
+- printed on multiple pages (continued) 
+- header repeated on each page 
+- footer only on the last page
