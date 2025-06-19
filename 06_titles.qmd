@@ -1,10 +1,8 @@
 ---
-title: "Titles"
+title: "Titles, Subtitles, and Captions"
 format: html
 editor: visual
 ---
-
-## Testing Title, Subtitle and Caption output
 
 ```{r}
 library(gtsummary)
@@ -28,8 +26,11 @@ gt::gtsave(gt_table, filename = "outputs/pdf/titles_gt_pdf.pdf")
 
 ###### Preview the Output
 
-![](outputs/pdf/titles_gt_pdf.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/pdf/titles_gt_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### rmarkdown rendered PDF
 
@@ -39,8 +40,11 @@ gt_table
 
 ###### Preview the Output
 
-![](outputs/pdf/titles_rmd_pdf.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/pdf/titles_rmd_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### gt_save rendered word file
 
@@ -52,9 +56,12 @@ doconv::docx2pdf("outputs/docx/titles_gt_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/titles_gt_word.pdf){width="80%" height="1000"} 
-- Titles present but right justified 
-- no caption
+![](outputs/docx/titles_gt_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                            |
+|-----|------------|------------------------------------|
+| 1   | 06/19/2025 | Titles present but right justified |
+| 2   | 06/19/2025 | no caption                         |
 
 ### quarto rendered word file
 
@@ -66,9 +73,12 @@ doconv::docx2pdf("outputs/docx/titles_qmd_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/titles_qmd_word.pdf){width="80%" height="1000"} 
-- Titles present but right justified 
-- no caption
+![](outputs/docx/titles_qmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                            |
+|-----|------------|------------------------------------|
+| 1   | 06/19/2025 | Titles present but right justified |
+| 2   | 06/19/2025 | no caption                         |
 
 ### rmarkdown rendered word file
 
@@ -80,6 +90,9 @@ doconv::docx2pdf("outputs/docx/titles_rmd_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/titles_rmd_word.pdf){width="80%" height="1000"} 
-- Titles present but right justified 
-- no caption
+![](outputs/docx/titles_rmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                            |
+|-----|------------|------------------------------------|
+| 1   | 06/19/2025 | Titles present but right justified |
+| 2   | 06/19/2025 | no caption                         |

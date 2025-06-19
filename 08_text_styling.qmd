@@ -4,8 +4,6 @@ format: html
 editor: visual
 ---
 
-## Testing Text Styling output
-
 ```{r eval=FALSE}
 
 library(gtsummary)
@@ -28,8 +26,11 @@ gt::gtsave(gt_table, filename = "outputs/pdf/bold_gt_pdf.pdf")
 
 ###### Preview the Output
 
-![](outputs/pdf/bold_gt_pdf.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/pdf/bold_gt_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### rmarkdown rendered PDF
 
@@ -39,8 +40,11 @@ gt_table
 
 ###### Preview the Output
 
-![](outputs/pdf/bold_rmd_pdf.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/pdf/bold_rmd_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### gt_save rendered word file
 
@@ -52,8 +56,11 @@ doconv::docx2pdf("outputs/docx/bold_gt_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/bold_gt_word.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/docx/bold_gt_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### quarto rendered word file
 
@@ -65,8 +72,11 @@ doconv::docx2pdf("outputs/docx/text_style_qmd_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/text_style_qmd_word.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/docx/text_style_qmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### rmarkdown rendered word file
 
@@ -78,5 +88,8 @@ doconv::docx2pdf("outputs/docx/text_style_rmd_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/bold_rmd_word.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/docx/bold_rmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |

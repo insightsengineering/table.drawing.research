@@ -4,8 +4,6 @@ format: html
 editor: visual
 ---
 
-## Testing Spanning Header output
-
 ```{r}
 library(gtsummary)
 
@@ -30,8 +28,11 @@ gt::gtsave(gt_table, filename = "outputs/pdf/spanning_header_gt_pdf.pdf")
 
 ###### Preview the Output
 
-![](outputs/pdf/spanning_header_gt_pdf.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/pdf/spanning_header_gt_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### rmarkdown rendered PDF
 
@@ -41,8 +42,11 @@ gt_table
 
 ###### Preview the Output
 
-![](outputs/pdf/spanning_header_rmd_pdf.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/pdf/spanning_header_rmd_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### gt_save rendered word file
 
@@ -54,8 +58,11 @@ doconv::docx2pdf("outputs/docx/spanning_header_gt_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/spanning_header_gt_word.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/docx/spanning_header_gt_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### quarto rendered word file
 
@@ -67,8 +74,11 @@ doconv::docx2pdf("outputs/docx/spanning_header_qmd_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/spanning_header_qmd_word.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/docx/spanning_header_qmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### rmarkdown rendered word file
 
@@ -80,5 +90,8 @@ doconv::docx2pdf("outputs/docx/spanning_header_rmd_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/spanning_header_rmd_word.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/docx/spanning_header_rmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |

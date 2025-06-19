@@ -4,8 +4,6 @@ format: html
 editor: visual
 ---
 
-## Testing Alignments output
-
 ```{r eval=FALSE}
 
 library(gtsummary)
@@ -26,8 +24,11 @@ gt::gtsave(gt_table, filename = "outputs/pdf/alignment_gt_pdf.pdf")
 
 ###### Preview the Output
 
-![](outputs/pdf/alignment_gt_pdf.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/pdf/alignment_gt_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### rmarkdown rendered PDF
 
@@ -37,8 +38,11 @@ gt_table
 
 ###### Preview the Output
 
-![](outputs/pdf/alignment_rmd_pdf.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/pdf/alignment_rmd_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### gt_save rendered word file
 
@@ -50,8 +54,11 @@ doconv::docx2pdf("outputs/docx/alignment_gt_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/alignment_gt_word.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/docx/alignment_gt_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### quarto rendered word file
 
@@ -64,7 +71,10 @@ doconv::docx2pdf("outputs/docx/alignment_qmd_word.docx")
 ###### Preview the Output
 
 ![](outputs/docx/alignment_qmd_word.pdf){width="80%" height="1000"}
-- no issues
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### rmarkdown rendered word file
 
@@ -76,5 +86,8 @@ doconv::docx2pdf("outputs/docx/alignment_rmd_word.docx")
 
 ###### Preview the Output
 
-![](outputs/docx/alignment_rmd_word.pdf){width="80%" height="1000"} 
-- no issues
+![](outputs/docx/alignment_rmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
