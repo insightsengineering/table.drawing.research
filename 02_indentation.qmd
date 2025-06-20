@@ -4,8 +4,6 @@ format: html
 editor: visual
 ---
 
-## Testing Indentation output
-
 The example table evaluates Indentation.
 
 ```{r}
@@ -34,47 +32,74 @@ gt_table <- tbl$table_body |>
 gt::gtsave(gt_table, filename = "outputs/pdf/indentations_gt_pdf.pdf")
 ```
 
-[Preview the Output](outputs/pdf/indentations_gt_pdf.pdf)
-- no issues
+###### Preview the Output
+
+![](outputs/pdf/indentations_gt_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### rmarkdown rendered PDF
 
 ```{r eval = FALSE}
-
 gt_table
 ```
 
-[Preview the Output](outputs/pdf/indentation_rmd_pdf.pdf)
-- no issues
+###### Preview the Output
+
+![](outputs/pdf/indentation_rmd_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### gt_save rendered word file
 
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/docx/indentation_gt_word.docx")
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/indentation_gt_word.docx")
 ```
 
-[Preview the Output](outputs/docx/indentation_gt_word.docx)
+###### Preview the Output
 
--   cell contents replaced with html code
+![](outputs/docx/indentation_gt_word.docx){width="80%" height="1000"}
+
+|     | Date       | Finding                              |
+|-----|------------|--------------------------------------|
+| 1   | 06/19/2025 | cell contents replaced with xml code |
 
 ```{html}
-      # <md_container><w:p><w:pPr></w:pPr><w:r><w:rPr></w:rPr><w:t xml:space="preserve">Unknown</w:t></w:r></w:p></md_container>
+# <md_container><w:p><w:pPr></w:pPr><w:r><w:rPr></w:rPr><w:t xml:space="preserve">Unknown</w:t></w:r></w:p></md_container>
 ```
 
 ### quarto rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/indentation_qmd_word.docx")
 ```
 
-[Preview the Output](outputs/docx/indentation_qmd_word.docx)
+###### Preview the Output
 
--   No indentation applied
+|     | Date       | Finding                |
+|-----|------------|------------------------|
+| 1   | 06/19/2025 | No indentation applied |
 
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/indentation_rmd_word.docx")
 ```
 
-[Preview the Output](outputs/docx/indentation_rmd_word.docx) the Output\](outputs/indentations_word.docx) - cell contents replaced with html code
+###### Preview the Output
+
+![](outputs/docx/indentation_rmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                              |
+|-----|------------|--------------------------------------|
+| 1   | 06/19/2025 | cell contents replaced with xml code |

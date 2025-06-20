@@ -9,15 +9,17 @@ editor:
 
 # Overview
 
-Tables built in {gtsummary} typically use {gt} functions to draw and render 
-tables in different output formats. As a result, not all table customization
-translated correctly. This repo is used to experiment and identify potential
-adaptions to {gt} functions to maintain as much of the table decoration as possible
-when exporting to other formats. Currently exploring: HTML, PDF 
-(with and without Typst), and Word (.docx) outputs.
+Tables built in {gtsummary} typically use {gt} functions to draw and
+render tables in different output formats. As a result, not all table
+customization translated correctly. This repo is used to experiment and
+identify potential adaptions to {gt} functions to maintain as much of
+the table decoration as possible when exporting to other formats.
+Currently exploring: HTML, PDF (with and without Typst), and Word
+(.docx) outputs.
 
-Below is the sample {gtsummary} table with notable customizations (footnotes, 
-headers, titles, linebreaks, indentations, etc.) we are tracking.
+Below is the sample {gtsummary} table with notable customizations
+(footnotes, headers, titles, linebreaks, indentations, etc.) we are
+tracking.
 
 ```{r}
 #| echo: false
@@ -69,12 +71,15 @@ tbl$table_body |>
   gt::tab_header(gt::md("This is the Title  \nwith a linebreak"), subtitle = "This is the Subtitle")
 ```
 
-
 ### Issue Log
-Here we document things that were discovered through this output analysis with date stamps that can be updated as feature requests are addressed.
 
-2025-03-03
-- No caption in all .docx exports
-- Titles in .docx output (using gtsave) are left-justified (not centered with the table)
-- Linebreaks aren't applied to "header" content in .docx output
-- "Table 1" text is automatically added when not supplied a title (.docx)
+Here we document things that were discovered through this output
+analysis with date stamps that can be updated as feature requests are
+addressed.
+
+| Date | Issue | Resolved? |
+|----|----|----|
+| 2025-03-03 | No caption in all .docx exports |  |
+| 2025-03-03 | Titles in .docx output (using gtsave) are left-justified (not centered with the table) |  |
+| 2025-03-03 | Linebreaks aren't applied to "header" content in .docx output |  |
+| 2025-03-03 | "Table 1" text is automatically added when not supplied a title (.docx) |  |

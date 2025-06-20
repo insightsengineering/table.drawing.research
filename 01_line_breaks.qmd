@@ -4,14 +4,19 @@ format: html
 editor: visual
 ---
 
-## Testing Line Breaks output
-
 Line breaks not being rendered correctly in a PDF is a known issue. We will skip the quarto rendered PDF and evaluate the line break behavior in other output options.
 
-The example table evaluates line breaks in: - Title - Column Headers - Table Header - Cells
+The example table evaluates line breaks in:
+
+-   Title
+
+-   Column Headers
+
+-   Table Headers
+
+-   Cells
 
 ```{r eval=FALSE}
-
 library(gtsummary)
 tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age  \n\U00A0\U00A0linebreak in a cell")) |> add_overall()
 gt_table <- tbl$table_body |> 
@@ -24,19 +29,23 @@ gt_table <- tbl$table_body |>
     stat_2 = gt::md("**Drug B**  \nManual Line Break")
   ) |> 
   gt::tab_header(gt::md("This is the Title  \nwith a linebreak"), subtitle = "This is the Subtitle")
-
 ```
 
 ### gt_save PDF
 
 ```{r eval = FALSE}
-gt::gtsave(gt_table, filename = "outputs/pdf/linebreaks_gt_pdf.pdf")
+gt::gtsave(gt_table, filename = "outputs/pdf/linebreaks_gt_pdf2.pdf")
 ```
 
-[Preview the Output](outputs/pdf/linebreaks_gt_pdf.pdf)
-- manual linebreaks work
-- title linebreaks work
-- linebreak in a cell works
+###### Preview the Output
+
+![](outputs/pdf/linebreaks_gt_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                    |
+|-----|------------|----------------------------|
+| 1   | 06/19/2025 | manual linebreaks work     |
+| 2   | 06/19/2025 | title linebreaks work      |
+| 3   | 06/19/2025 | linebreaks in a cell works |
 
 ### rmarkdown rendered PDF
 
@@ -44,43 +53,66 @@ gt::gtsave(gt_table, filename = "outputs/pdf/linebreaks_gt_pdf.pdf")
 gt_table
 ```
 
-[Preview the Output](outputs/pdf/linebreaks_rmd_pdf.pdf)
+###### Preview the Output
 
-- title linebreaks work
-- manual linebreak works but disrupts cell alignment
-- linebreak in a cell doesn't work
+![](outputs/pdf/linebreaks_rmd_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                                            |
+|-----|------------|----------------------------------------------------|
+| 1   | 06/19/2025 | title linebreaks work                              |
+| 2   | 06/19/2025 | manual linebreak works but disrupts cell alignment |
+| 3   | 06/19/2025 | linebreak in a cell doesn't work                   |
 
 ### gt_save rendered word file
 
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/docx/linebreaks_gt_word.docx")
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/linebreaks_gt_word.docx")
 ```
 
-[Preview the Output](outputs/docx/linebreaks_gt_word.docx)
-- title linebreak not working
-- cell linebreak not working
-- manual linebreaks work
+###### Preview the Output
+
+![](outputs/docx/linebreaks_gt_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                     |
+|-----|------------|-----------------------------|
+| 1   | 06/19/2025 | title linebreak not working |
+| 2   | 06/19/2025 | cell linebreak not working  |
+| 3   | 06/19/2025 | manual linebreaks work      |
 
 ### quarto rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/linebreaks_qmd_word.docx")
 ```
 
-[Preview the Output](outputs/docx/linebreaks_qmd_word.docx)
+###### Preview the Output
 
-- title linebreak not working
-- cell linebreak not working
-- manual linebreaks work
+![](outputs/docx/linebreaks_qmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                     |
+|-----|------------|-----------------------------|
+| 1   | 06/19/2025 | title linebreak not working |
+| 2   | 06/19/2025 | cell linebreak not working  |
+| 3   | 06/19/2025 | manual linebreaks work      |
 
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/linebreaks_rmd_word.docx")
 ```
 
-[Preview the Output](outputs/docx/linebreaks_rmd_word.docx)
+###### Preview the Output
 
-- title linebreak not working
-- cell linebreak not working
-- manual linebreaks work
+![](outputs/docx/linebreaks_rmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                     |
+|-----|------------|-----------------------------|
+| 1   | 06/19/2025 | title linebreak not working |
+| 2   | 06/19/2025 | cell linebreak not working  |
+| 3   | 06/19/2025 | manual linebreaks work      |

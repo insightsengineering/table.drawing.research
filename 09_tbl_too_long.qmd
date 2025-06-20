@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-## Testing output when the table is too long
+Testing when the table is too long to fit on the page (vertical pagination).
 
 ```{r eval=FALSE}
 
@@ -76,10 +76,14 @@ summary_table <- data %>%
 gt::gtsave(as_gt(summary_table), filename = "outputs/pdf/too_long_gt_pdf.pdf")
 ```
 
-[Preview the Output](outputs/pdf/too_long_gt_pdf.pdf)
+###### Preview the Output
 
-- printed on multiple pages
-- header and footnotes repeated on each page
+![](outputs/pdf/too_long_gt_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                                    |
+|-----|------------|--------------------------------------------|
+| 1   | 06/19/2025 | printed on multiple pages                  |
+| 2   | 06/19/2025 | header and footnotes repeated on each page |
 
 ### rmarkdown rendered PDF
 
@@ -87,43 +91,65 @@ gt::gtsave(as_gt(summary_table), filename = "outputs/pdf/too_long_gt_pdf.pdf")
 gt_table
 ```
 
-[Preview the Output](outputs/pdf/too_long_rmd_pdf.pdf)
+###### Preview the Output
 
-- printed on one page
-- table cut off at the end of the page
+![](outputs/pdf/too_long_rmd_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                               |
+|-----|------------|---------------------------------------|
+| 1   | 06/19/2025 | printed on one page                   |
+| 2   | 06/19/2025 |  table cut off at the end of the page |
 
 ### gt_save rendered word file
 
 ```{r eval = FALSE}
 gt::gtsave(as_gt(summary_table), filename = "outputs/docx/too_long_gt_word.docx")
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/too_long_gt_word.docx")
 ```
 
-[Preview the Output](outputs/docx/too_long_gt_word.docx)
+###### Preview the Output
 
-- printed on multiple pages (continued)
-- header repeated on each page
-- footer only on the last page
+![](outputs/docx/too_long_gt_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                                |
+|-----|------------|----------------------------------------|
+| 1   | 06/19/2025 | printed on multiple pages (continued)  |
+| 2   | 06/19/2025 | header repeated on each page           |
+| 3   | 01/19/2025 | footer only on the last page           |
 
 ### quarto rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/too_long_qmd_word.docx")
 ```
 
-[Preview the Output](outputs/docx/too_long_qmd_word.docx)
+###### Preview the Output
 
-- printed on multiple pages (continued)
-- header repeated on each page
-- footer only on the last page
+![](outputs/docx/too_long_qmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                                |
+|-----|------------|----------------------------------------|
+| 1   | 06/19/2025 | printed on multiple pages (continued)  |
+| 2   | 06/19/2025 | header repeated on each page           |
+| 3   | 01/19/2025 | footer only on the last page           |
 
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/too_long_rmd_word.docx")
 ```
 
-[Preview the Output](outputs/docx/too_long_rmd_word.docx)
+###### Preview the Output
 
-- printed on multiple pages (continued)
-- header repeated on each page
-- footer only on the last page
+![](outputs/docx/too_long_rmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding                                |
+|-----|------------|----------------------------------------|
+| 1   | 06/19/2025 | printed on multiple pages (continued)  |
+| 2   | 06/19/2025 | header repeated on each page           |
+| 3   | 01/19/2025 | footer only on the last page           |

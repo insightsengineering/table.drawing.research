@@ -4,8 +4,6 @@ format: html
 editor: visual
 ---
 
-## Testing Source Note output
-
 ```{r}
 library(gtsummary)
 
@@ -25,44 +23,72 @@ gt_table <- tbl$table_body |>
 gt::gtsave(gt_table, filename = "outputs/pdf/source_notes_gt_pdf.pdf")
 ```
 
-[Preview the Output](outputs/pdf/footnotes_gt_pdf.pdf)
--no issues
+###### Preview the Output
+
+![](outputs/pdf/footnotes_gt_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
+
 ### rmarkdown rendered PDF
 
 ```{r eval = FALSE}
 gt_table
 ```
 
-[Preview the Output](outputs/pdf/source_notes_rmd_pdf.pdf)
+###### Preview the Output
 
-- no issues
+![](outputs/pdf/source_notes_rmd_pdf.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### gt_save rendered word file
 
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/docx/source_notes_gt_word.docx")
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/source_notes_gt_word.docx")
 ```
 
-[Preview the Output](outputs/docx/source_notes_gt_word.docx)
+###### Preview the Output
 
-- no issues
+![](outputs/docx/source_notes_gt_word.docx){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### quarto rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/source_notes_qmd_word.docx")
 ```
 
-[Preview the Output](outputs/docx/source_notes_qmd_word.docx)
+###### Preview the Output
 
-- no issues
+![](outputs/docx/source_notes_qmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
 
 ### rmarkdown rendered word file
 
 ```{r eval = FALSE}
 gt_table
+# converting word to pdf locally 
+doconv::docx2pdf("outputs/docx/source_notes_rmd_word.docx")
 ```
 
-[Preview the Output](outputs/docx/source_notes_rmd_word.docx)
+###### Preview the Output
 
-- no issues
+![](outputs/docx/source_notes_rmd_word.pdf){width="80%" height="1000"}
+
+|     | Date       | Finding   |
+|-----|------------|-----------|
+| 1   | 06/19/2025 | no issues |
