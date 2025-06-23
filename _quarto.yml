@@ -1,9 +1,40 @@
 project:
   type: website
-  output-dir: docs
   render:
     - "*.qmd"
     - "!renderdocs/"
+format:
+  html:
+    search: true
+    anchor-sections: true
+    smooth-scroll: true
+    code-link: true
+    code-fold: false
+    code-overflow: scroll
+    code-line-numbers: true
+    code-copy: true
+    code-tools:
+      source: true
+      toggle: false
+      caption: none
+    code-block-bg: true
+    css: quarto/assets/style.scss
+    toc: false
+    number-sections: false
+    lang: en-US
+    page-layout: full
+    df-print: kable
+
+execute:
+  freeze: auto
+  cache: true
+  code-line-numbers: true
+
+knitr:
+  opts_chunk:
+    echo: true
+    code-fold: show
+    fig.width: 15
 
 website:
   page-navigation: true
@@ -49,12 +80,4 @@ website:
        text: Table Too Wide
      - href: 11_other_engines.qmd
        text: Other Engines
-
-format:
-  html:
-    theme: cosmo
-    toc: true
-    code-copy: true
-    code-overflow: scroll
-
 editor: source
