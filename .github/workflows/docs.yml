@@ -47,6 +47,20 @@ jobs:
       - name: Check out repository 🛎️
         uses: actions/checkout@v4.1.1
 
+      - name: Install system dependencies
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install libcurl4-openssl-dev libharfbuzz-dev libfribidi-dev libv8-dev libfontconfig1-dev
+
+
+      - name: Restore packages
+        shell: Rscript {0}
+        run: |
+          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+          renv::install(c("rmarkdown", "yaml"))
+          renv::restore()
+
       - name: Render Quarto Project 📑
         run: quarto render --output-dir _site
         shell: bash
