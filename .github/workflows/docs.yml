@@ -51,14 +51,6 @@ jobs:
       - name: Check out repository 🛎️
         uses: actions/checkout@v4.1.1
 
-      - name: Run Staged dependencies 🎦
-        uses: insightsengineering/staged-dependencies-action@v1
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          enable-check: false
-          direction: upstream
-
       - name: Render Quarto Project 📑
         run: quarto render --output-dir _site
         shell: bash
