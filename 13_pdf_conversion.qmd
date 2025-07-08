@@ -8,7 +8,7 @@ editor: visual
 
 There are limited opensource document converters available for converting tables in docx files to pdf output with high fidelity. One software explored is libreoffice. Findings from experimenting with this package:
 
-```{r}
+```{r, eval=FALSE}
 library(gtsummary)
 library(dplyr)
 

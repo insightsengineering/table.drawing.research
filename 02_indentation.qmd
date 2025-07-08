@@ -6,7 +6,7 @@ editor: visual
 
 The example table evaluates Indentation.
 
-```{r}
+```{r, eval=FALSE}
 library(gtsummary)
 tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
 
@@ -83,6 +83,7 @@ doconv::docx2pdf("outputs/docx/indentation_qmd_word.docx")
 ```
 
 ###### Preview the Output
+
 ![](outputs/docx/indentation_qmd_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding                |
