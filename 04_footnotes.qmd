@@ -19,6 +19,8 @@ gt_table <- tbl$table_body |>
   gt::tab_footnote("Footnote in Spanning Header", locations = gt::cells_column_spanners(spanners = "stat_1_L1")) |> 
   gt::tab_footnote("Footnote in Subtitle", locations = gt::cells_title("subtitle")) |> 
   gt::tab_footnote("Footnote in Title", locations = gt::cells_title("title")) 
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -42,7 +44,6 @@ gt_table
 ```
 
 ###### Preview the Output
-
 ![](outputs/pdf/footnotes_rmd_pdf.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -58,7 +59,6 @@ doconv::docx2pdf("outputs/docx/footnotes_gt_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/footnotes_gt_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -72,7 +72,6 @@ gt_table
 # converting word to pdf locally 
 doconv::docx2pdf("outputs/docx/footnotes_qmd_word.docx")
 ```
-
 ###### Preview the Output
 
 ![](outputs/docx/footnotes_qmd_word.pdf){width="80%" height="1000"}
@@ -90,7 +89,6 @@ doconv::docx2pdf("outputs/docx/footnotes_rmd_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/footnotes_rmd_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |

@@ -3,9 +3,9 @@ title: "Text Styling"
 format: html
 editor: visual
 ---
+## Testing Text Styling output
 
 ```{r eval=FALSE}
-
 library(gtsummary)
 tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
 
@@ -16,6 +16,8 @@ gt_table <- tbl$table_body |>
     style = gt::cell_text(weight = "bold"), 
     locations = gt::cells_body(columns = "label", rows = c(1, 3))
   ) 
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -25,7 +27,6 @@ gt::gtsave(gt_table, filename = "outputs/pdf/bold_gt_pdf.pdf")
 ```
 
 ###### Preview the Output
-
 ![](outputs/pdf/bold_gt_pdf.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -39,7 +40,6 @@ gt_table
 ```
 
 ###### Preview the Output
-
 ![](outputs/pdf/bold_rmd_pdf.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -55,7 +55,6 @@ doconv::docx2pdf("outputs/docx/bold_gt_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/bold_gt_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -71,7 +70,6 @@ doconv::docx2pdf("outputs/docx/text_style_qmd_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/text_style_qmd_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -87,7 +85,6 @@ doconv::docx2pdf("outputs/docx/text_style_rmd_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/bold_rmd_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |

@@ -29,6 +29,8 @@ gt_table <- tbl$table_body |>
     stat_2 = gt::md("**Drug B**  \nManual Line Break")
   ) |> 
   gt::tab_header(gt::md("This is the Title  \nwith a linebreak"), subtitle = "This is the Subtitle")
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -54,7 +56,6 @@ gt_table
 ```
 
 ###### Preview the Output
-
 ![](outputs/pdf/linebreaks_rmd_pdf.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding                                            |
@@ -90,7 +91,6 @@ doconv::docx2pdf("outputs/docx/linebreaks_qmd_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/linebreaks_qmd_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding                     |

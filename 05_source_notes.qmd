@@ -15,6 +15,8 @@ gt_table <- tbl$table_body |>
   gt::tab_source_note("This is Source Note 1") |> 
   gt::tab_source_note("This is Source Note 2") |> 
   gt::tab_source_note("Abbreviations: Q1 = First Quartile; Q3 = Third Quartile")
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -22,7 +24,6 @@ gt_table <- tbl$table_body |>
 ```{r eval = FALSE}
 gt::gtsave(gt_table, filename = "outputs/pdf/source_notes_gt_pdf.pdf")
 ```
-
 ###### Preview the Output
 
 ![](outputs/pdf/footnotes_gt_pdf.pdf){width="80%" height="1000"}
@@ -38,7 +39,6 @@ gt_table
 ```
 
 ###### Preview the Output
-
 ![](outputs/pdf/source_notes_rmd_pdf.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -54,7 +54,6 @@ doconv::docx2pdf("outputs/docx/source_notes_gt_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/source_notes_gt_word.docx){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -70,7 +69,6 @@ doconv::docx2pdf("outputs/docx/source_notes_qmd_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/source_notes_qmd_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -86,7 +84,6 @@ doconv::docx2pdf("outputs/docx/source_notes_rmd_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/source_notes_rmd_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |

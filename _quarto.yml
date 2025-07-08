@@ -39,7 +39,7 @@ knitr:
 website:
   page-navigation: true
   title: "Table Drawing Research"
-  description: "Table Engine output Experimentation"
+  description: "Table Engine Output Experimentation"
 
   repo-url: https://github.com/insightsengineering/table.drawing.research
   repo-actions: [edit, issue]
@@ -80,4 +80,6 @@ website:
        text: Table Too Wide
      - href: 11_other_engines.qmd
        text: Other Engines
+     - href: 12_col_widths.qmd
+       text: Column Widths
 editor: source

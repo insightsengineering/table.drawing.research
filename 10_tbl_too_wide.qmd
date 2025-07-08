@@ -6,7 +6,7 @@ editor: visual
 
 Testing what happens when the table is too wide (horizontal pagination)
 
-```{r eval=FALSE}
+```{r eval=T}
 library(gtsummary)
 library(dplyr)
 
@@ -67,6 +67,8 @@ summary_table <- data %>%
   modify_header(label = "**Characteristic**", estimate = "**Mean (SD) or N (%)**") %>%
   modify_table_styling(columns = everything()) %>%
   add_overall()  # This adds an overall column
+
+summary_table
 ```
 
 ### gt_save PDF
@@ -76,7 +78,6 @@ gt::gtsave(as_gt(summary_table), filename = "outputs/pdf/too_wide_gt_pdf.pdf")
 ```
 
 ###### Preview the Output
-
 ![](outputs/pdf/too_wide_gt_pdf.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding                                         |
@@ -90,7 +91,6 @@ summary_table
 ```
 
 ###### Preview the Output
-
 ![](outputs/pdf/too_wide_rmd_pdf.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding                                         |
@@ -104,7 +104,6 @@ gt::gtsave(as_gt(summary_table), filename = "outputs/docx/too_wide_gt_word.docx"
 # converting word to pdf locally 
 doconv::docx2pdf("outputs/docx/too_wide_gt_word.docx")
 ```
-
 ###### Preview the Output
 
 ![](outputs/docx/too_wide_gt_word.pdf){width="80%" height="1000"}
@@ -138,7 +137,6 @@ doconv::docx2pdf("outputs/docx/too_wide_rmd_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/too_wide_rmd_word.pdf){width="80%" height="1000"}
 
 |   | Date | Finding |

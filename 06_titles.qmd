@@ -16,6 +16,8 @@ gt_table <- tbl$table_body |>
   gt::sub_missing(missing_text = "") |> 
   # title, subtitle, and captions
   gt::tab_header(gt::md("This is the Title"), subtitle = "This is the Subtitle")
+
+gt_table
 ```
 
 ### gt_save PDF
@@ -25,7 +27,6 @@ gt::gtsave(gt_table, filename = "outputs/pdf/titles_gt_pdf.pdf")
 ```
 
 ###### Preview the Output
-
 ![](outputs/pdf/titles_gt_pdf.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -39,7 +40,6 @@ gt_table
 ```
 
 ###### Preview the Output
-
 ![](outputs/pdf/titles_rmd_pdf.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding   |
@@ -55,7 +55,6 @@ doconv::docx2pdf("outputs/docx/titles_gt_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/titles_gt_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding                            |
@@ -72,7 +71,6 @@ doconv::docx2pdf("outputs/docx/titles_qmd_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/titles_qmd_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding                            |
@@ -89,7 +87,6 @@ doconv::docx2pdf("outputs/docx/titles_rmd_word.docx")
 ```
 
 ###### Preview the Output
-
 ![](outputs/docx/titles_rmd_word.pdf){width="80%" height="1000"}
 
 |     | Date       | Finding                            |

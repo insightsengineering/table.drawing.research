@@ -24,6 +24,8 @@ gt_table <- tbl$table_body |>
     locations = gt::cells_body(columns = label, rows = row_type %in% "missing"),
     fn = function(x) paste0(strrep("\U00A0", times = 4), x)
   ) 
+
+gt_table
 ```
 
 ### gt_save PDF
