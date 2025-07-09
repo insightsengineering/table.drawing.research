@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.4.555">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>Table Drawing Research - Titles, Subtitles, and Captions</title>
+<title>Table Drawing Research - PDF Conversion Outputs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -59,8 +59,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./07_alignment.html" rel="next">
-<link href="./05_source_notes.html" rel="prev">
+<link href="./11_other_engines.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -105,7 +104,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06_titles.html">Titles</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13_pdf_conversion.html">PDF Conversion</a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -167,7 +166,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06_titles.html" class="sidebar-item-text sidebar-link active">
+  <a href="./06_titles.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Titles</span></a>
   </div>
 </li>
@@ -203,7 +202,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./13_pdf_conversion.html" class="sidebar-item-text sidebar-link">
+  <a href="./13_pdf_conversion.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">PDF Conversion</span></a>
   </div>
 </li>
@@ -214,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
 <!-- main -->
 <main class="content column-page-right" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Titles, Subtitles, and Captions</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
+<div class="quarto-title-block"><div><h1 class="title">PDF Conversion Outputs</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i></button></div></div>
 </div>
 
 
@@ -228,143 +227,83 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 
-</header><div class="cell">
+</header><section id="docx-to-pdf-conversion" class="level2"><h2 class="anchored" data-anchor-id="docx-to-pdf-conversion">docx to PDF Conversion</h2>
+<p>There are limited opensource document converters available for converting tables in docx files to pdf output with high fidelity. One software explored is libreoffice. Findings from experimenting with this package:</p>
+<div class="cell">
 <details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(gtsummary)</span>
-<span id="cb1-2"><a href="#cb1-2"></a></span>
-<span id="cb1-3"><a href="#cb1-3"></a>tbl <span class="ot">&lt;-</span> gtsummary<span class="sc">::</span><span class="fu">tbl_summary</span>(gtsummary<span class="sc">::</span>trial, <span class="at">by =</span> trt, <span class="at">include =</span> <span class="fu">c</span>(age, grade), <span class="at">missing =</span> <span class="st">"always"</span>, <span class="at">label =</span> <span class="fu">list</span>(<span class="at">age =</span> <span class="st">"Age"</span>)) <span class="sc">|&gt;</span> <span class="fu">add_overall</span>()</span>
-<span id="cb1-4"><a href="#cb1-4"></a></span>
-<span id="cb1-5"><a href="#cb1-5"></a>gt_table <span class="ot">&lt;-</span> tbl<span class="sc">$</span>table_body <span class="sc">|&gt;</span> </span>
-<span id="cb1-6"><a href="#cb1-6"></a>  gt<span class="sc">::</span><span class="fu">gt</span>(<span class="at">caption =</span> gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"This is the caption"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-7"><a href="#cb1-7"></a>  gt<span class="sc">::</span><span class="fu">fmt_markdown</span>(<span class="at">columns =</span> label) <span class="sc">|&gt;</span> <span class="co"># need this to recognize the line break in the table body</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a>  gt<span class="sc">::</span><span class="fu">cols_hide</span>(<span class="at">columns =</span> <span class="fu">c</span>(variable, var_type, row_type, var_label)) <span class="sc">|&gt;</span> </span>
-<span id="cb1-9"><a href="#cb1-9"></a>  gt<span class="sc">::</span><span class="fu">sub_missing</span>(<span class="at">missing_text =</span> <span class="st">""</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb1-10"><a href="#cb1-10"></a>  <span class="co"># title, subtitle, and captions</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a>  gt<span class="sc">::</span><span class="fu">tab_header</span>(gt<span class="sc">::</span><span class="fu">md</span>(<span class="st">"This is the Title"</span>), <span class="at">subtitle =</span> <span class="st">"This is the Subtitle"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a>data <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">tibble</span>(</span>
+<span id="cb1-6"><a href="#cb1-6"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,</span>
+<span id="cb1-7"><a href="#cb1-7"></a>  <span class="at">age =</span> <span class="fu">sample</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">90</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-8"><a href="#cb1-8"></a>  <span class="at">sex =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Male"</span>, <span class="st">"Female"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-9"><a href="#cb1-9"></a>  <span class="at">race =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"White"</span>, <span class="st">"Black"</span>, <span class="st">"Asian"</span>, <span class="st">"Hispanic"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="at">bmi =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">18</span>, <span class="dv">35</span>), <span class="dv">1</span>),</span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="at">smoking_status =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Never"</span>, <span class="st">"Former"</span>, <span class="st">"Current"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="at">diabetes =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-13"><a href="#cb1-13"></a>  <span class="at">hypertension =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-14"><a href="#cb1-14"></a>  <span class="at">heart_disease =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-15"><a href="#cb1-15"></a>  <span class="at">cancer =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-16"><a href="#cb1-16"></a>  <span class="at">cholesterol =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Normal"</span>, <span class="st">"High"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-17"><a href="#cb1-17"></a>  <span class="at">exercise_frequency =</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">7</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-18"><a href="#cb1-18"></a>  <span class="at">alcohol_intake =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"None"</span>, <span class="st">"Low"</span>, <span class="st">"Moderate"</span>, <span class="st">"High"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-19"><a href="#cb1-19"></a>  <span class="at">family_history =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-20"><a href="#cb1-20"></a>  <span class="at">education =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"High School"</span>, <span class="st">"College"</span>, <span class="st">"Graduate"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-21"><a href="#cb1-21"></a>  <span class="at">marital_status =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Single"</span>, <span class="st">"Married"</span>, <span class="st">"Divorced"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-22"><a href="#cb1-22"></a>  <span class="at">employment_status =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Employed"</span>, <span class="st">"Unemployed"</span>, <span class="st">"Retired"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-23"><a href="#cb1-23"></a>  <span class="at">region =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"North"</span>, <span class="st">"South"</span>, <span class="st">"East"</span>, <span class="st">"West"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-24"><a href="#cb1-24"></a>  <span class="at">health_insurance =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-25"><a href="#cb1-25"></a>  <span class="at">medication =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-26"><a href="#cb1-26"></a>  <span class="at">visits_last_year =</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">10</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb1-27"><a href="#cb1-27"></a>  <span class="at">satisfaction =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-28"><a href="#cb1-28"></a>)</span>
+<span id="cb1-29"><a href="#cb1-29"></a></span>
+<span id="cb1-30"><a href="#cb1-30"></a><span class="co"># Create summary table</span></span>
+<span id="cb1-31"><a href="#cb1-31"></a>summary_table <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb1-32"><a href="#cb1-32"></a>  <span class="fu">tbl_summary</span>(</span>
+<span id="cb1-33"><a href="#cb1-33"></a>    <span class="at">by =</span> sex,  <span class="co"># Group by sex</span></span>
+<span id="cb1-34"><a href="#cb1-34"></a>    <span class="at">statistic =</span> <span class="fu">list</span>(<span class="fu">all_continuous</span>() <span class="sc">~</span> <span class="st">"{mean} ({sd})"</span>, <span class="fu">all_categorical</span>() <span class="sc">~</span> <span class="st">"{n} ({p}%)"</span>),</span>
+<span id="cb1-35"><a href="#cb1-35"></a>    <span class="at">label =</span> <span class="fu">list</span>(</span>
+<span id="cb1-36"><a href="#cb1-36"></a>      age <span class="sc">~</span> <span class="st">"Age (years)"</span>,</span>
+<span id="cb1-37"><a href="#cb1-37"></a>      bmi <span class="sc">~</span> <span class="st">"BMI"</span>,</span>
+<span id="cb1-38"><a href="#cb1-38"></a>      smoking_status <span class="sc">~</span> <span class="st">"Smoking Status"</span>,</span>
+<span id="cb1-39"><a href="#cb1-39"></a>      diabetes <span class="sc">~</span> <span class="st">"Diabetes"</span>,</span>
+<span id="cb1-40"><a href="#cb1-40"></a>      hypertension <span class="sc">~</span> <span class="st">"Hypertension"</span>,</span>
+<span id="cb1-41"><a href="#cb1-41"></a>      heart_disease <span class="sc">~</span> <span class="st">"Heart Disease"</span>,</span>
+<span id="cb1-42"><a href="#cb1-42"></a>      cancer <span class="sc">~</span> <span class="st">"Cancer"</span>,</span>
+<span id="cb1-43"><a href="#cb1-43"></a>      cholesterol <span class="sc">~</span> <span class="st">"Cholesterol"</span>,</span>
+<span id="cb1-44"><a href="#cb1-44"></a>      exercise_frequency <span class="sc">~</span> <span class="st">"Exercise Frequency (days/week)"</span>,</span>
+<span id="cb1-45"><a href="#cb1-45"></a>      alcohol_intake <span class="sc">~</span> <span class="st">"Alcohol Intake"</span>,</span>
+<span id="cb1-46"><a href="#cb1-46"></a>      family_history <span class="sc">~</span> <span class="st">"Family History"</span>,</span>
+<span id="cb1-47"><a href="#cb1-47"></a>      education <span class="sc">~</span> <span class="st">"Education Level"</span>,</span>
+<span id="cb1-48"><a href="#cb1-48"></a>      marital_status <span class="sc">~</span> <span class="st">"Marital Status"</span>,</span>
+<span id="cb1-49"><a href="#cb1-49"></a>      employment_status <span class="sc">~</span> <span class="st">"Employment Status"</span>,</span>
+<span id="cb1-50"><a href="#cb1-50"></a>      region <span class="sc">~</span> <span class="st">"Region"</span>,</span>
+<span id="cb1-51"><a href="#cb1-51"></a>      health_insurance <span class="sc">~</span> <span class="st">"Health Insurance"</span>,</span>
+<span id="cb1-52"><a href="#cb1-52"></a>      medication <span class="sc">~</span> <span class="st">"On Medication"</span>,</span>
+<span id="cb1-53"><a href="#cb1-53"></a>      visits_last_year <span class="sc">~</span> <span class="st">"Visits Last Year"</span>,</span>
+<span id="cb1-54"><a href="#cb1-54"></a>      satisfaction <span class="sc">~</span> <span class="st">"Health Satisfaction (1-5)"</span></span>
+<span id="cb1-55"><a href="#cb1-55"></a>    )</span>
+<span id="cb1-56"><a href="#cb1-56"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a>  <span class="fu">add_n</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb1-58"><a href="#cb1-58"></a>  <span class="fu">modify_header</span>(<span class="at">label =</span> <span class="st">"**Characteristic**"</span>, <span class="at">estimate =</span> <span class="st">"**Mean (SD) or N (%)**"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-59"><a href="#cb1-59"></a>  <span class="fu">modify_table_styling</span>(<span class="at">columns =</span> <span class="fu">everything</span>())</span>
+<span id="cb1-60"><a href="#cb1-60"></a></span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="co"># save as a word document</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a>gt<span class="sc">::</span><span class="fu">gtsave</span>(<span class="fu">as_gt</span>(summary_table), <span class="at">filename =</span> <span class="st">"outputs/docx/too_long_libreoffice_word.docx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="gt_save-pdf" class="level3"><h3 class="anchored" data-anchor-id="gt_save-pdf">gt_save PDF</h3>
+<p>Convert the word document to pdf using libreoffice</p>
 <div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>gt<span class="sc">::</span><span class="fu">gtsave</span>(gt_table, <span class="at">filename =</span> <span class="st">"outputs/pdf/titles_gt_pdf.pdf"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource bash number-lines code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># soffice --headless --convert-to pdf "outputs/docx/too_long_libreoffice_word.docx" --outdir "outputs/pdf"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<section id="preview-the-output" class="level6"><h6 class="anchored" data-anchor-id="preview-the-output">Preview the Output</h6>
-<p><embed src="outputs/pdf/titles_gt_pdf.pdf" style="width:80.0%" height="1000"></p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th></th>
-<th>Date</th>
-<th>Finding</th>
-</tr></thead>
-<tbody><tr class="odd">
-<td>1</td>
-<td>06/19/2025</td>
-<td>no issues</td>
-</tr></tbody>
-</table></section></section><section id="rmarkdown-rendered-pdf" class="level3"><h3 class="anchored" data-anchor-id="rmarkdown-rendered-pdf">rmarkdown rendered PDF</h3>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>gt_table</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<section id="preview-the-output-1" class="level6"><h6 class="anchored" data-anchor-id="preview-the-output-1">Preview the Output</h6>
-<p><embed src="outputs/pdf/titles_rmd_pdf.pdf" style="width:80.0%" height="1000"></p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th></th>
-<th>Date</th>
-<th>Finding</th>
-</tr></thead>
-<tbody><tr class="odd">
-<td>1</td>
-<td>06/19/2025</td>
-<td>no issues</td>
-</tr></tbody>
-</table></section></section><section id="gt_save-rendered-word-file" class="level3"><h3 class="anchored" data-anchor-id="gt_save-rendered-word-file">gt_save rendered word file</h3>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>gt<span class="sc">::</span><span class="fu">gtsave</span>(gt_table, <span class="at">filename =</span> <span class="st">"outputs/docx/titles_gt_word.docx"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2"></a><span class="co"># converting word to pdf locally </span></span>
-<span id="cb4-3"><a href="#cb4-3"></a>doconv<span class="sc">::</span><span class="fu">docx2pdf</span>(<span class="st">"outputs/docx/titles_gt_word.docx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<section id="preview-the-output-2" class="level6"><h6 class="anchored" data-anchor-id="preview-the-output-2">Preview the Output</h6>
-<p><embed src="outputs/docx/titles_gt_word.pdf" style="width:80.0%" height="1000"></p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th></th>
-<th>Date</th>
-<th>Finding</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>06/19/2025</td>
-<td>Titles present but right justified</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>06/19/2025</td>
-<td>no caption</td>
-</tr>
-</tbody>
-</table></section></section><section id="quarto-rendered-word-file" class="level3"><h3 class="anchored" data-anchor-id="quarto-rendered-word-file">quarto rendered word file</h3>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>gt_table</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># converting word to pdf locally </span></span>
-<span id="cb5-3"><a href="#cb5-3"></a>doconv<span class="sc">::</span><span class="fu">docx2pdf</span>(<span class="st">"outputs/docx/titles_qmd_word.docx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<section id="preview-the-output-3" class="level6"><h6 class="anchored" data-anchor-id="preview-the-output-3">Preview the Output</h6>
-<p><embed src="outputs/docx/titles_qmd_word.pdf" style="width:80.0%" height="1000"></p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th></th>
-<th>Date</th>
-<th>Finding</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>06/19/2025</td>
-<td>Titles present but right justified</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>06/19/2025</td>
-<td>no caption</td>
-</tr>
-</tbody>
-</table></section></section><section id="rmarkdown-rendered-word-file" class="level3"><h3 class="anchored" data-anchor-id="rmarkdown-rendered-word-file">rmarkdown rendered word file</h3>
-<div class="cell">
-<details open="" class="code-fold"><summary>Code</summary><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>gt_table</span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co"># converting word to pdf locally </span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>doconv<span class="sc">::</span><span class="fu">docx2pdf</span>(<span class="st">"outputs/docx/titles_rmd_word.docx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
-</div>
-<section id="preview-the-output-4" class="level6"><h6 class="anchored" data-anchor-id="preview-the-output-4">Preview the Output</h6>
-<p><embed src="outputs/docx/titles_rmd_word.pdf" style="width:80.0%" height="1000"></p>
-<table class="caption-top table">
-<thead><tr class="header">
-<th></th>
-<th>Date</th>
-<th>Finding</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>06/19/2025</td>
-<td>Titles present but right justified</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>06/19/2025</td>
-<td>no caption</td>
-</tr>
-</tbody>
-</table>
 
 
 <!-- -->
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -824,118 +763,98 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><nav class="page-navigation column-page-right"><div class="nav-page nav-page-previous">
-      <a href="./05_source_notes.html" class="pagination-link" aria-label="Source Notes">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Source Notes</span>
+      <a href="./11_other_engines.html" class="pagination-link" aria-label="Other Engines">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Other Engines</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./07_alignment.html" class="pagination-link" aria-label="Alignment">
-        <span class="nav-page-text">Alignment</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="an">title:</span><span class="co"> "Titles, Subtitles, and Captions"</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="an">format:</span><span class="co"> html</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a><span class="co">---</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a></span>
-<span id="cb7-7"><a href="#cb7-7"></a><span class="in">```{r, eval=FALSE}</span></span>
-<span id="cb7-8"><a href="#cb7-8"></a><span class="in">library(gtsummary)</span></span>
-<span id="cb7-9"><a href="#cb7-9"></a></span>
-<span id="cb7-10"><a href="#cb7-10"></a><span class="in">tbl &lt;- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |&gt; add_overall()</span></span>
-<span id="cb7-11"><a href="#cb7-11"></a></span>
-<span id="cb7-12"><a href="#cb7-12"></a><span class="in">gt_table &lt;- tbl$table_body |&gt; </span></span>
-<span id="cb7-13"><a href="#cb7-13"></a><span class="in">  gt::gt(caption = gt::md("This is the caption")) |&gt; </span></span>
-<span id="cb7-14"><a href="#cb7-14"></a><span class="in">  gt::fmt_markdown(columns = label) |&gt; # need this to recognize the line break in the table body</span></span>
-<span id="cb7-15"><a href="#cb7-15"></a><span class="in">  gt::cols_hide(columns = c(variable, var_type, row_type, var_label)) |&gt; </span></span>
-<span id="cb7-16"><a href="#cb7-16"></a><span class="in">  gt::sub_missing(missing_text = "") |&gt; </span></span>
-<span id="cb7-17"><a href="#cb7-17"></a><span class="in">  # title, subtitle, and captions</span></span>
-<span id="cb7-18"><a href="#cb7-18"></a><span class="in">  gt::tab_header(gt::md("This is the Title"), subtitle = "This is the Subtitle")</span></span>
-<span id="cb7-19"><a href="#cb7-19"></a><span class="in">```</span></span>
-<span id="cb7-20"><a href="#cb7-20"></a></span>
-<span id="cb7-21"><a href="#cb7-21"></a><span class="fu">### gt_save PDF</span></span>
-<span id="cb7-22"><a href="#cb7-22"></a></span>
-<span id="cb7-23"><a href="#cb7-23"></a><span class="in">```{r eval = FALSE}</span></span>
-<span id="cb7-24"><a href="#cb7-24"></a><span class="in">gt::gtsave(gt_table, filename = "outputs/pdf/titles_gt_pdf.pdf")</span></span>
-<span id="cb7-25"><a href="#cb7-25"></a><span class="in">```</span></span>
-<span id="cb7-26"><a href="#cb7-26"></a></span>
-<span id="cb7-27"><a href="#cb7-27"></a><span class="fu">###### Preview the Output</span></span>
-<span id="cb7-28"><a href="#cb7-28"></a></span>
-<span id="cb7-29"><a href="#cb7-29"></a><span class="al">![](outputs/pdf/titles_gt_pdf.pdf)</span>{width="80%" height="1000"}</span>
-<span id="cb7-30"><a href="#cb7-30"></a></span>
-<span id="cb7-31"><a href="#cb7-31"></a>|     | Date       | Finding   |</span>
-<span id="cb7-32"><a href="#cb7-32"></a>|-----|------------|-----------|</span>
-<span id="cb7-33"><a href="#cb7-33"></a>| 1   | 06/19/2025 | no issues |</span>
-<span id="cb7-34"><a href="#cb7-34"></a></span>
-<span id="cb7-35"><a href="#cb7-35"></a><span class="fu">### rmarkdown rendered PDF</span></span>
-<span id="cb7-36"><a href="#cb7-36"></a></span>
-<span id="cb7-37"><a href="#cb7-37"></a><span class="in">```{r eval = FALSE}</span></span>
-<span id="cb7-38"><a href="#cb7-38"></a><span class="in">gt_table</span></span>
-<span id="cb7-39"><a href="#cb7-39"></a><span class="in">```</span></span>
-<span id="cb7-40"><a href="#cb7-40"></a></span>
-<span id="cb7-41"><a href="#cb7-41"></a><span class="fu">###### Preview the Output</span></span>
-<span id="cb7-42"><a href="#cb7-42"></a></span>
-<span id="cb7-43"><a href="#cb7-43"></a><span class="al">![](outputs/pdf/titles_rmd_pdf.pdf)</span>{width="80%" height="1000"}</span>
-<span id="cb7-44"><a href="#cb7-44"></a></span>
-<span id="cb7-45"><a href="#cb7-45"></a>|     | Date       | Finding   |</span>
-<span id="cb7-46"><a href="#cb7-46"></a>|-----|------------|-----------|</span>
-<span id="cb7-47"><a href="#cb7-47"></a>| 1   | 06/19/2025 | no issues |</span>
-<span id="cb7-48"><a href="#cb7-48"></a></span>
-<span id="cb7-49"><a href="#cb7-49"></a><span class="fu">### gt_save rendered word file</span></span>
-<span id="cb7-50"><a href="#cb7-50"></a></span>
-<span id="cb7-51"><a href="#cb7-51"></a><span class="in">```{r eval = FALSE}</span></span>
-<span id="cb7-52"><a href="#cb7-52"></a><span class="in">gt::gtsave(gt_table, filename = "outputs/docx/titles_gt_word.docx")</span></span>
-<span id="cb7-53"><a href="#cb7-53"></a><span class="in"># converting word to pdf locally </span></span>
-<span id="cb7-54"><a href="#cb7-54"></a><span class="in">doconv::docx2pdf("outputs/docx/titles_gt_word.docx")</span></span>
-<span id="cb7-55"><a href="#cb7-55"></a><span class="in">```</span></span>
-<span id="cb7-56"><a href="#cb7-56"></a></span>
-<span id="cb7-57"><a href="#cb7-57"></a><span class="fu">###### Preview the Output</span></span>
-<span id="cb7-58"><a href="#cb7-58"></a></span>
-<span id="cb7-59"><a href="#cb7-59"></a><span class="al">![](outputs/docx/titles_gt_word.pdf)</span>{width="80%" height="1000"}</span>
-<span id="cb7-60"><a href="#cb7-60"></a></span>
-<span id="cb7-61"><a href="#cb7-61"></a>|     | Date       | Finding                            |</span>
-<span id="cb7-62"><a href="#cb7-62"></a>|-----|------------|------------------------------------|</span>
-<span id="cb7-63"><a href="#cb7-63"></a>| 1   | 06/19/2025 | Titles present but right justified |</span>
-<span id="cb7-64"><a href="#cb7-64"></a>| 2   | 06/19/2025 | no caption                         |</span>
-<span id="cb7-65"><a href="#cb7-65"></a></span>
-<span id="cb7-66"><a href="#cb7-66"></a><span class="fu">### quarto rendered word file</span></span>
-<span id="cb7-67"><a href="#cb7-67"></a></span>
-<span id="cb7-68"><a href="#cb7-68"></a><span class="in">```{r eval = FALSE}</span></span>
-<span id="cb7-69"><a href="#cb7-69"></a><span class="in">gt_table</span></span>
-<span id="cb7-70"><a href="#cb7-70"></a><span class="in"># converting word to pdf locally </span></span>
-<span id="cb7-71"><a href="#cb7-71"></a><span class="in">doconv::docx2pdf("outputs/docx/titles_qmd_word.docx")</span></span>
-<span id="cb7-72"><a href="#cb7-72"></a><span class="in">```</span></span>
-<span id="cb7-73"><a href="#cb7-73"></a></span>
-<span id="cb7-74"><a href="#cb7-74"></a><span class="fu">###### Preview the Output</span></span>
-<span id="cb7-75"><a href="#cb7-75"></a></span>
-<span id="cb7-76"><a href="#cb7-76"></a><span class="al">![](outputs/docx/titles_qmd_word.pdf)</span>{width="80%" height="1000"}</span>
-<span id="cb7-77"><a href="#cb7-77"></a></span>
-<span id="cb7-78"><a href="#cb7-78"></a>|     | Date       | Finding                            |</span>
-<span id="cb7-79"><a href="#cb7-79"></a>|-----|------------|------------------------------------|</span>
-<span id="cb7-80"><a href="#cb7-80"></a>| 1   | 06/19/2025 | Titles present but right justified |</span>
-<span id="cb7-81"><a href="#cb7-81"></a>| 2   | 06/19/2025 | no caption                         |</span>
-<span id="cb7-82"><a href="#cb7-82"></a></span>
-<span id="cb7-83"><a href="#cb7-83"></a><span class="fu">### rmarkdown rendered word file</span></span>
-<span id="cb7-84"><a href="#cb7-84"></a></span>
-<span id="cb7-85"><a href="#cb7-85"></a><span class="in">```{r eval = FALSE}</span></span>
-<span id="cb7-86"><a href="#cb7-86"></a><span class="in">gt_table</span></span>
-<span id="cb7-87"><a href="#cb7-87"></a><span class="in"># converting word to pdf locally </span></span>
-<span id="cb7-88"><a href="#cb7-88"></a><span class="in">doconv::docx2pdf("outputs/docx/titles_rmd_word.docx")</span></span>
-<span id="cb7-89"><a href="#cb7-89"></a><span class="in">```</span></span>
-<span id="cb7-90"><a href="#cb7-90"></a></span>
-<span id="cb7-91"><a href="#cb7-91"></a><span class="fu">###### Preview the Output</span></span>
-<span id="cb7-92"><a href="#cb7-92"></a></span>
-<span id="cb7-93"><a href="#cb7-93"></a><span class="al">![](outputs/docx/titles_rmd_word.pdf)</span>{width="80%" height="1000"}</span>
-<span id="cb7-94"><a href="#cb7-94"></a></span>
-<span id="cb7-95"><a href="#cb7-95"></a>|     | Date       | Finding                            |</span>
-<span id="cb7-96"><a href="#cb7-96"></a>|-----|------------|------------------------------------|</span>
-<span id="cb7-97"><a href="#cb7-97"></a>| 1   | 06/19/2025 | Titles present but right justified |</span>
-<span id="cb7-98"><a href="#cb7-98"></a>| 2   | 06/19/2025 | no caption                         |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3" data-shortcodes="false"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="co">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a><span class="an">title:</span><span class="co"> "PDF Conversion Outputs"</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="an">format:</span><span class="co"> html</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb3-5"><a href="#cb3-5"></a><span class="co">---</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a></span>
+<span id="cb3-7"><a href="#cb3-7"></a><span class="fu">## docx to PDF Conversion</span></span>
+<span id="cb3-8"><a href="#cb3-8"></a></span>
+<span id="cb3-9"><a href="#cb3-9"></a>There are limited opensource document converters available for converting tables in docx files to pdf output with high fidelity. One software explored is libreoffice. Findings from experimenting with this package:</span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="in">```{r, eval=FALSE}</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="in">library(gtsummary)</span></span>
+<span id="cb3-13"><a href="#cb3-13"></a><span class="in">library(dplyr)</span></span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="in">set.seed(123)</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a><span class="in">data &lt;- dplyr::tibble(</span></span>
+<span id="cb3-17"><a href="#cb3-17"></a><span class="in">  id = 1:100,</span></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="in">  age = sample(18:90, 100, replace = TRUE),</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="in">  sex = sample(c("Male", "Female"), 100, replace = TRUE),</span></span>
+<span id="cb3-20"><a href="#cb3-20"></a><span class="in">  race = sample(c("White", "Black", "Asian", "Hispanic"), 100, replace = TRUE),</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="in">  bmi = round(runif(100, 18, 35), 1),</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a><span class="in">  smoking_status = sample(c("Never", "Former", "Current"), 100, replace = TRUE),</span></span>
+<span id="cb3-23"><a href="#cb3-23"></a><span class="in">  diabetes = sample(c("Yes", "No"), 100, replace = TRUE),</span></span>
+<span id="cb3-24"><a href="#cb3-24"></a><span class="in">  hypertension = sample(c("Yes", "No"), 100, replace = TRUE),</span></span>
+<span id="cb3-25"><a href="#cb3-25"></a><span class="in">  heart_disease = sample(c("Yes", "No"), 100, replace = TRUE),</span></span>
+<span id="cb3-26"><a href="#cb3-26"></a><span class="in">  cancer = sample(c("Yes", "No"), 100, replace = TRUE),</span></span>
+<span id="cb3-27"><a href="#cb3-27"></a><span class="in">  cholesterol = sample(c("Normal", "High"), 100, replace = TRUE),</span></span>
+<span id="cb3-28"><a href="#cb3-28"></a><span class="in">  exercise_frequency = sample(0:7, 100, replace = TRUE),</span></span>
+<span id="cb3-29"><a href="#cb3-29"></a><span class="in">  alcohol_intake = sample(c("None", "Low", "Moderate", "High"), 100, replace = TRUE),</span></span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="in">  family_history = sample(c("Yes", "No"), 100, replace = TRUE),</span></span>
+<span id="cb3-31"><a href="#cb3-31"></a><span class="in">  education = sample(c("High School", "College", "Graduate"), 100, replace = TRUE),</span></span>
+<span id="cb3-32"><a href="#cb3-32"></a><span class="in">  marital_status = sample(c("Single", "Married", "Divorced"), 100, replace = TRUE),</span></span>
+<span id="cb3-33"><a href="#cb3-33"></a><span class="in">  employment_status = sample(c("Employed", "Unemployed", "Retired"), 100, replace = TRUE),</span></span>
+<span id="cb3-34"><a href="#cb3-34"></a><span class="in">  region = sample(c("North", "South", "East", "West"), 100, replace = TRUE),</span></span>
+<span id="cb3-35"><a href="#cb3-35"></a><span class="in">  health_insurance = sample(c("Yes", "No"), 100, replace = TRUE),</span></span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="in">  medication = sample(c("Yes", "No"), 100, replace = TRUE),</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a><span class="in">  visits_last_year = sample(0:10, 100, replace = TRUE),</span></span>
+<span id="cb3-38"><a href="#cb3-38"></a><span class="in">  satisfaction = sample(1:5, 100, replace = TRUE)</span></span>
+<span id="cb3-39"><a href="#cb3-39"></a><span class="in">)</span></span>
+<span id="cb3-40"><a href="#cb3-40"></a></span>
+<span id="cb3-41"><a href="#cb3-41"></a><span class="in"># Create summary table</span></span>
+<span id="cb3-42"><a href="#cb3-42"></a><span class="in">summary_table &lt;- data %&gt;%</span></span>
+<span id="cb3-43"><a href="#cb3-43"></a><span class="in">  tbl_summary(</span></span>
+<span id="cb3-44"><a href="#cb3-44"></a><span class="in">    by = sex,  # Group by sex</span></span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="in">    statistic = list(all_continuous() ~ "{mean} ({sd})", all_categorical() ~ "{n} ({p}%)"),</span></span>
+<span id="cb3-46"><a href="#cb3-46"></a><span class="in">    label = list(</span></span>
+<span id="cb3-47"><a href="#cb3-47"></a><span class="in">      age ~ "Age (years)",</span></span>
+<span id="cb3-48"><a href="#cb3-48"></a><span class="in">      bmi ~ "BMI",</span></span>
+<span id="cb3-49"><a href="#cb3-49"></a><span class="in">      smoking_status ~ "Smoking Status",</span></span>
+<span id="cb3-50"><a href="#cb3-50"></a><span class="in">      diabetes ~ "Diabetes",</span></span>
+<span id="cb3-51"><a href="#cb3-51"></a><span class="in">      hypertension ~ "Hypertension",</span></span>
+<span id="cb3-52"><a href="#cb3-52"></a><span class="in">      heart_disease ~ "Heart Disease",</span></span>
+<span id="cb3-53"><a href="#cb3-53"></a><span class="in">      cancer ~ "Cancer",</span></span>
+<span id="cb3-54"><a href="#cb3-54"></a><span class="in">      cholesterol ~ "Cholesterol",</span></span>
+<span id="cb3-55"><a href="#cb3-55"></a><span class="in">      exercise_frequency ~ "Exercise Frequency (days/week)",</span></span>
+<span id="cb3-56"><a href="#cb3-56"></a><span class="in">      alcohol_intake ~ "Alcohol Intake",</span></span>
+<span id="cb3-57"><a href="#cb3-57"></a><span class="in">      family_history ~ "Family History",</span></span>
+<span id="cb3-58"><a href="#cb3-58"></a><span class="in">      education ~ "Education Level",</span></span>
+<span id="cb3-59"><a href="#cb3-59"></a><span class="in">      marital_status ~ "Marital Status",</span></span>
+<span id="cb3-60"><a href="#cb3-60"></a><span class="in">      employment_status ~ "Employment Status",</span></span>
+<span id="cb3-61"><a href="#cb3-61"></a><span class="in">      region ~ "Region",</span></span>
+<span id="cb3-62"><a href="#cb3-62"></a><span class="in">      health_insurance ~ "Health Insurance",</span></span>
+<span id="cb3-63"><a href="#cb3-63"></a><span class="in">      medication ~ "On Medication",</span></span>
+<span id="cb3-64"><a href="#cb3-64"></a><span class="in">      visits_last_year ~ "Visits Last Year",</span></span>
+<span id="cb3-65"><a href="#cb3-65"></a><span class="in">      satisfaction ~ "Health Satisfaction (1-5)"</span></span>
+<span id="cb3-66"><a href="#cb3-66"></a><span class="in">    )</span></span>
+<span id="cb3-67"><a href="#cb3-67"></a><span class="in">  ) %&gt;%</span></span>
+<span id="cb3-68"><a href="#cb3-68"></a><span class="in">  add_n() %&gt;%</span></span>
+<span id="cb3-69"><a href="#cb3-69"></a><span class="in">  modify_header(label = "**Characteristic**", estimate = "**Mean (SD) or N (%)**") %&gt;%</span></span>
+<span id="cb3-70"><a href="#cb3-70"></a><span class="in">  modify_table_styling(columns = everything())</span></span>
+<span id="cb3-71"><a href="#cb3-71"></a></span>
+<span id="cb3-72"><a href="#cb3-72"></a><span class="in"># save as a word document</span></span>
+<span id="cb3-73"><a href="#cb3-73"></a><span class="in">gt::gtsave(as_gt(summary_table), filename = "outputs/docx/too_long_libreoffice_word.docx")</span></span>
+<span id="cb3-74"><a href="#cb3-74"></a></span>
+<span id="cb3-75"><a href="#cb3-75"></a><span class="in">```</span></span>
+<span id="cb3-76"><a href="#cb3-76"></a></span>
+<span id="cb3-77"><a href="#cb3-77"></a>Convert the word document to pdf using libreoffice</span>
+<span id="cb3-78"><a href="#cb3-78"></a></span>
+<span id="cb3-79"><a href="#cb3-79"></a><span class="in">```{bash, eval = FALSE}</span></span>
+<span id="cb3-80"><a href="#cb3-80"></a><span class="in"># soffice --headless --convert-to pdf "outputs/docx/too_long_libreoffice_word.docx" --outdir "outputs/pdf"</span></span>
+<span id="cb3-81"><a href="#cb3-81"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/insightsengineering/table.drawing.research/edit/main/06_titles.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/insightsengineering/table.drawing.research/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/insightsengineering/table.drawing.research/edit/main/13_pdf_conversion.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/insightsengineering/table.drawing.research/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div></div></footer><script src="site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>
