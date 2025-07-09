@@ -1,0 +1,74 @@
+---
+name: Docs 📚
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "_pkgdown.y[a]ml"
+      - DESCRIPTION
+      - "**.md"
+      - "**.Rmd"
+      - "man/**"
+      - "LICENSE.*"
+      - NAMESPACE
+      - "_quarto.yml"
+      - "index.qmd"
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    branches:
+      - main
+    paths:
+      - "_pkgdown.y[a]ml"
+      - DESCRIPTION
+      - "**.md"
+      - "**.Rmd"
+      - "man/**"
+      - "LICENSE.*"
+      - NAMESPACE
+      - "_quarto.yml"
+      - "index.qmd"
+  workflow_dispatch:
+
+jobs:
+  docs:
+    name: Quarto Docs 📕
+    runs-on: ubuntu-latest
+    container:
+      image: rocker/verse:4.4.0
+    permissions:
+      contents: write
+    steps:
+      - name: Check out repository 🛎️
+        uses: actions/checkout@v4.1.1
+
+      - name: Restore packages
+        shell: Rscript {0}
+        run: |
+          if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+          renv::install(c("rmarkdown", "yaml"))
+          renv::restore()
+
+      - name: Render Quarto Project 📑
+        run: quarto render --output-dir _site
+        shell: bash
+
+      - name: Upload Docs ⬆️
+        if: github.event_name != 'push'
+        uses: actions/upload-artifact@v4
+        with:
+          name: site
+          path: ./_site
+
+      - name: Publish Site 🗺️
+        if: github.event_name != 'pull_request'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          destination_dir: "."

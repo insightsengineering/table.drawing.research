@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-```{r}
+```{r, eval=FALSE}
 library(gtsummary)
 
 tbl <- gtsummary::tbl_summary(gtsummary::trial, by = trt, include = c(age, grade), missing = "always", label = list(age = "Age")) |> add_overall()
